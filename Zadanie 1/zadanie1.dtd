@@ -1,0 +1,49 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT dokument (autorzy,sklep_rowerowy)>
+
+<!ELEMENT autorzy (autor)+>
+
+<!ELEMENT autor (imię,nazwisko)>
+<!ATTLIST autor
+  Indeks CDATA #REQUIRED>
+
+<!ELEMENT imię (#PCDATA)>
+
+<!ELEMENT nazwisko (#PCDATA)>
+
+<!ELEMENT sklep_rowerowy (rodzaj+,producenci)>
+<!--powinno <!ELEMENT rodzaj (opis,lista_rowerów)> byc ale nie dziala  -->
+<!ELEMENT rodzaj ANY>
+<!ATTLIST rodzaj
+  Id ID #REQUIRED>
+
+<!ELEMENT opis (#PCDATA)>
+
+<!ELEMENT lista_rowerów (rower)+>
+
+<!ELEMENT producenci (p)+>
+
+<!ELEMENT rower (producent,nazwa,waga,cena)>
+<!ATTLIST rower
+  Id ID #REQUIRED>
+
+<!ELEMENT producent EMPTY>
+<!ATTLIST producent
+  idref IDREF #REQUIRED>
+
+<!ELEMENT nazwa (#PCDATA)>
+
+<!ELEMENT waga (#PCDATA)>
+<!ATTLIST waga
+  jednostka NMTOKEN #REQUIRED>
+
+<!ELEMENT cena (#PCDATA)>
+<!ATTLIST cena
+  waluta NMTOKEN #REQUIRED>
+
+
+<!ELEMENT p EMPTY>
+<!ATTLIST p
+  Id ID #REQUIRED
+  kraj NMTOKEN #REQUIRED>

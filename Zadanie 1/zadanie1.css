@@ -1,0 +1,157 @@
+dokument{
+ font-family: Verdana;
+ font-size: 15px;
+ background: url("background.jpg");
+ margin: 20px;
+ color: whitesmoke;
+}
+autorzy:before {
+    text-align: center;
+    display: block;
+    font-size: 30px;
+    content:"Zadanie 1 - Sklep rowerowy"; 
+} 
+autorzy{
+    text-align: center;
+    display: block;
+    margin: 10px;
+    padding: 10px;
+    font-size: 20px;
+}
+sklep_rowerowy{
+    margin: 20px;
+}
+rodzaj{
+    display: block;
+    text-align: center;
+	font-size: 50px;
+	border: solid #000 1px;
+	border-radius: 2px;
+        padding:10px;
+	font-family: "Segoe UI"; 
+}
+opis{
+    display:block;
+    	font-size: 30px;
+
+}
+nazwa, waga, cena, producent{
+    font-size: 30px;
+}
+
+rower[Id="S01"]::before{
+    content: url("./RoweryGrafika/Kross_Vento_2.0 resize.jpg");
+}
+rower[Id="S02"]::before{
+    content: url("./RoweryGrafika/Specialized_Allez_Elite resize.jpg"); 
+}
+rower[Id="S03"]::before{
+    content: url("./RoweryGrafika/Trek Domane SL 6 disc resize.jpg"); 
+}
+rower[Id="S04"]::before{
+    content: url("./RoweryGrafika/Kross Vento Te resize.jpg"); 
+}
+rower[Id="S05"]::before{
+    content: url("./RoweryGrafika/Treck Madone 9.5 resize.jpg"); 
+}
+rower[Id="G01"]::before{
+    content: url("./RoweryGrafika/Kross Level 14.0 resize.jpg"); 
+}
+rower[Id="G02"]::before{
+    content: url("./RoweryGrafika/Specialized_S-Works_Epic_XTR_Di2 resize.jpg"); 
+}
+rower[Id="G03"]::before{
+    content: url("./RoweryGrafika/Treck_Procaliber_9.7 resize.jpg"); 
+}
+rower[Id="G04"]::before{
+    content: url("./RoweryGrafika/Treck_Roscoe_8 resize.jpg"); 
+}
+rower[Id="G05"]::before{
+    content: url("./RoweryGrafika/Kross_Lea_4.0 resize.jpg"); 
+}
+rower[Id="M01"]::before{
+    content: url("./RoweryGrafika/Treck_T80_Speed_Men resize.jpg"); 
+}
+rower[Id="M02"]::before{
+    content: url("./RoweryGrafika/Le_Grand_Lille_4 resize.jpg"); 
+}
+rower[Id="M03"]::before{
+    content: url("./RoweryGrafika/Le_Grand_Virginia_3 resize.jpg"); 
+}
+rower[Id="M04"]::before{
+    content: url("./RoweryGrafika/Treck_T80_Speed_Men resize.jpg"); 
+}
+rower[Id="M05"]::before{
+    content: url("./RoweryGrafika/Trek_X500_Stagger resize.jpg"); 
+}
+rower[Id="E01"]::before{
+    content: url("./RoweryGrafika/Kross_Lea_Boost_1.0 resize.jpg"); 
+}
+rower[Id="E02"]::before{
+    content: url("./RoweryGrafika/Specialized_Turbo_Levo_FSR_Comp_Carbon_6Fattie resize.jpg"); 
+}
+rower[Id="E03"]::before{
+    content: url("./RoweryGrafika/Treck_Powerfly_5 resize.jpg"); 
+}
+rower[Id="E04"]::before{
+    content: url("./RoweryGrafika/Le_Grand_Elille_2 resize.jpg"); 
+}
+rower[Id="E05"]::before{
+    content: url("./RoweryGrafika/Specialized_Turbo_Vado_4.0_NB resize.jpg"); 
+}
+rower[Id="Z01"]::before{
+    content: url("./RoweryGrafika/Specialized_Demo_8_Carbon resize.jpg"); 
+}
+rower[Id="Z02"]::before{
+    content: url("./RoweryGrafika/Specialized_S-Works_Demo_8 resize.jpg"); 
+}
+rower[Id="Z03"]::before{
+    content: url("./RoweryGrafika/rower-specialized-demo-8-i-alloy resize.jpg"); 
+}
+rower[Id="Z04"]::before{
+    content: url("./RoweryGrafika/rower-zjazdowy-trek-session-8-275 resize.jpg"); 
+}
+rower[Id="Z05"]::before{
+    content: url("./RoweryGrafika/rower-zjazdowy-trek-session-99-dh-275-race-shop-limited resize.jpg"); 
+}
+
+rower{
+    display: block;
+    font-size: 95%; 
+    display: inline-block;
+    border-style: double;
+    border-radius: 3px;
+    border-color: #757600;
+    table-layout: fixed;
+    tab-size: 4px;
+    word-wrap: break-word;
+    width: 400px;
+    height: 460px;
+    margin: 5px;
+    padding:10px;
+}
+nazwa::before{
+    content:"Nazwa: ";
+}
+nazwa, waga, cena{
+    text-align: left;
+    display: block;
+}
+waga::before{
+    content:"Waga: ";
+}
+waga::after{
+    content:" " attr(jednostka);
+}
+producent::before{
+    text-align: left;
+    display: block;
+    content:"Producent: " attr(idref);
+}
+cena::before{
+    content:"Cena: ";
+}
+
+cena::after{
+    content:" " attr(waluta);
+}
