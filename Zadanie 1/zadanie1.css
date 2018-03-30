@@ -24,18 +24,19 @@ sklep_rowerowy{
 rodzaj{
     display: block;
     text-align: center;
-	font-size: 50px;
-	border: solid #000 1px;
-	border-radius: 2px;
-        padding:10px;
-	font-family: "Segoe UI"; 
+    font-size: 50px;
+    border: solid #000 1px;
+    border-radius: 10px;
+    padding:10px;
+    font-family: "Segoe UI"; 
 }
 opis{
     display:block;
-    	font-size: 30px;
+    font-size: 30px;
+    color: #00ffff;
 
 }
-nazwa, waga, cena, producent{
+nazwa, waga, cena, producent, RokZaprojektowania{
     font-size: 30px;
 }
 
@@ -120,38 +121,83 @@ rower{
     font-size: 95%; 
     display: inline-block;
     border-style: double;
-    border-radius: 3px;
+    border-radius: 10px;
     border-color: #757600;
-    table-layout: fixed;
+    border-width: 10px;
     tab-size: 4px;
-    word-wrap: break-word;
     width: 400px;
-    height: 460px;
+    height: 510px;
     margin: 5px;
     padding:10px;
 }
 nazwa::before{
+    font-weight: bold;
     content:"Nazwa: ";
 }
-nazwa, waga, cena{
+nazwa, waga, cena, RokZaprojektowania{
     text-align: left;
     display: block;
 }
 waga::before{
+    font-weight: bold;
     content:"Waga: ";
 }
 waga::after{
     content:" " attr(jednostka);
 }
 producent::before{
-    text-align: left;
+    font-style: italic;
+    text-align: center;
     display: block;
     content:"Producent: " attr(idref);
 }
 cena::before{
+    font-weight: bold;
     content:"Cena: ";
 }
 
 cena::after{
     content:" " attr(waluta);
+}
+
+RokZaprojektowania::before{
+    font-weight: bold;
+    content:"Rok: ";
+}
+
+
+RokZaprojektowania::after{
+    size: 10px;
+    content:" " attr(rok);
+	
+}
+
+RokZaprojektowania[rok="2018"] {
+    color: red;
+}
+/*rower[Id$="01"]{
+        border-color: red;
+}
+rower[Id$="03"]{
+        border-color: red;
+}
+rower[Id$="05"]{
+        border-color: red;
+}*/
+
+rower:nth-child(2n) {
+        border-color: red;
+}
+
+dataUtworzenia::before{
+    content: "Data utworzenia: ";
+}
+dataEdycji::before{
+    content: "Data edycji: ";
+}
+dataUtworzenia{
+    display: block;
+}
+dataEdycji{
+    display: block;
 }
