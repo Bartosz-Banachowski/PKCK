@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+xmlns:dok="http://www.example.org/dokument"
+targetNamespace="http://www.example.org/dokument" 
+elementFormDefault="qualified" >
+
+<!--glowny dokument-->
+<xsd:complexType name="KlasaDokument">
+    <xsd:sequence> 
+        <xsd:element name="autorzy" type="dok:KlasaAutor" /> 
+        <xsd:element name="sklep_rowerowy" type="dok:KlasaSklep" /> 
+    </xsd:sequence> 
+</xsd:complexType>
+
+<!--autorzy-->
+<xsd:complexType name="KlasaAutor">
+    <xsd:sequence>
+        <xsd:element name="autor" minOccurs="1" maxOccurs="unbounded" type="dok:KlasaDane"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="KlasaDane">
+    <xsd:sequence>
+        <xsd:element name="imię" type="dok:Imie"/>
+        <xsd:element name="nazwisko" type="dok:Nazwisko"/>
+        <xsd:element name="email" type="dok:Email"/>
+    </xsd:sequence>
+    <xsd:attribute name="Indeks" use="required" type="dok:KlasaIndeks"/>
+</xsd:complexType>
+
+<xsd:simpleType name="Imie"> 
+    <xsd:restriction base="xsd:string">
+        <xsd:minLength value="3"/>
+        <xsd:maxLength value="40"/>
+    </xsd:restriction> 
+</xsd:simpleType>
+
+<xsd:simpleType name="Nazwisko">
+    <xsd:restriction base="xsd:string">
+        <xsd:minLength value="3"/>
+        <xsd:maxLength value="40"/>
+    </xsd:restriction> 
+</xsd:simpleType>
+
+<xsd:simpleType name="Email">
+    <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="40"/>
+        <xsd:pattern value="[0-9]{6}@edu.p.lodz.pl"/>
+    </xsd:restriction> 
+</xsd:simpleType>
+
+<xsd:simpleType name="KlasaIndeks">
+    <xsd:restriction base="xsd:integer">
+        <xsd:pattern value="\d{6}"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<!--sklep rowerowy-->
+<xsd:complexType name="KlasaSklep"> 
+    <xsd:sequence> 
+         <xsd:element name="rodzaj" minOccurs="1" maxOccurs="unbounded" type="dok:KlasaRodzaj" /> 
+         <xsd:element name="producenci" type="dok:KlasaProducenci" />
+         <xsd:element name="stopka" type="dok:KlasaStopka" />
+    </xsd:sequence> 
+</xsd:complexType>
+
+<xsd:complexType name="KlasaRodzaj" mixed="true"> 
+    <xsd:sequence> 
+         <xsd:element name="opis" type="xsd:string" /> 
+         <xsd:element name="lista_rowerów" type="dok:KlasaLista_Rowerow" /> 
+    </xsd:sequence>
+    <xsd:attribute name="Id" use="required" type="dok:StrId"/>
+</xsd:complexType>   
+        
+ <xsd:complexType name="KlasaLista_Rowerow">
+    <xsd:sequence>
+        <xsd:element name="rower" minOccurs="0" maxOccurs="unbounded" type="dok:KlasaRower"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="KlasaRower">
+    <xsd:sequence>
+        <xsd:element name="producent" type="dok:KlasaProducent"/>
+        <xsd:element name="nazwa" type="dok:KlasaNazwa"/>
+        <xsd:element name="waga" type="dok:KlasaWaga"/>
+        <xsd:element name="cena" type="dok:KlasaCena"/>
+        <xsd:element name="RokZaprojektowania" type="dok:KlasaRokZaprojektowania"/>
+    </xsd:sequence>
+    <xsd:attribute name="Id" use="required" type="dok:StrId"/>
+ </xsd:complexType>   
+ 
+ <xsd:complexType name="KlasaProducent">
+    <xsd:simpleContent>
+        <xsd:extension base="xsd:string">
+            <xsd:attribute name="idref" use="required" type="dok:StrId"/>
+        </xsd:extension>
+    </xsd:simpleContent>
+</xsd:complexType>
+
+<xsd:simpleType name="KlasaNazwa">
+    <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="64"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="KlasaWaga">
+    <xsd:simpleContent>
+        <xsd:extension base="xsd:string">
+            <xsd:attribute name="jednostka" use="optional" type="dok:KlasaJednostki"/>
+        </xsd:extension>
+    </xsd:simpleContent>
+</xsd:complexType>
+
+<xsd:simpleType name="KlasaJednostki">
+    <xsd:restriction base="xsd:token">
+        <xsd:enumeration value="kg"/>
+        <xsd:enumeration value="ibs"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="KlasaCena">
+    <xsd:simpleContent>
+        <xsd:extension base="xsd:string">
+            <xsd:attribute name="waluta" use="required" type="dok:KlasaWaluta"/>
+        </xsd:extension>
+    </xsd:simpleContent>
+</xsd:complexType>
+ 
+<xsd:simpleType name="KlasaWaluta">
+    <xsd:restriction base="xsd:token">
+        <xsd:enumeration value="PLN"/>
+        <xsd:enumeration value="EUR"/>
+        <xsd:enumeration value="USD"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="KlasaRokZaprojektowania">
+    <xsd:attribute name="rok" use="required" type="dok:KlasaRok"/>
+</xsd:complexType>
+
+<xsd:simpleType name="KlasaRok">
+    <xsd:restriction base="xsd:token">
+        <xsd:enumeration value="2016"/>
+        <xsd:enumeration value="2017"/>
+        <xsd:enumeration value="2018"/>
+    </xsd:restriction>
+</xsd:simpleType>
+        
+<xsd:simpleType name="StrId"> 
+    <xsd:restriction base="xsd:string">
+        <xsd:minLength value="1"/>
+        <xsd:maxLength value="80"/>
+    </xsd:restriction> 
+</xsd:simpleType>
+
+<xsd:complexType name="KlasaProducenci">
+   <xsd:sequence>
+        <xsd:element name="pochodzenie" maxOccurs="unbounded" type="dok:KlasaProducentRef"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="KlasaProducentRef">
+   <xsd:attribute name="Id" use="required" type="dok:StrId"/>
+   <xsd:attribute name="kraj" use="required" type="xsd:string"/>
+</xsd:complexType> 
+
+<xsd:element name="dokument" type="dok:KlasaDokument">
+    <xsd:key name="IdKey">
+        <xsd:selector xpath="dok:sklep_rowerowy/dok:producenci/dok:producentt"/>
+        <xsd:field xpath="@Id" />
+    </xsd:key>
+    <xsd:keyref name="LoginRef" refer="dok:IdKey">
+        <xsd:selector xpath="dok:sklep_rowerowy/dok:rodzaj/dok:lista_rowerów/dok:rower/dok:pochodzenie"/>
+        <xsd:field xpath="@idref" />
+    </xsd:keyref>
+</xsd:element>
+
+<xsd:attributeGroup name="DatyDokumentuAttribute">
+    <xsd:attribute name="dataUtworzenia" use="required" type="xsd:date"/>
+    <xsd:attribute name="dataEdycji" use="required" type="xsd:date"/>
+</xsd:attributeGroup>
+
+<xsd:complexType name="KlasaStopka">
+    <xsd:attributeGroup ref="dok:DatyDokumentuAttribute"/>
+</xsd:complexType>
+
+</xsd:schema>

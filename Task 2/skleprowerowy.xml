@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="./skleprowerowy.css" type="text/css"?>
+
+<dokument
+xmlns="http://www.example.org/dokument"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.example.org/dokument skleprowerowy.xsd">
+
+    <autorzy>
+        <autor Indeks="203979">
+            <imię>Łukasz</imię>
+            <nazwisko>Rogoziński</nazwisko>
+            <email>203979@edu.p.lodz.pl</email>
+        </autor>
+        <autor Indeks="203849">
+            <imię>Bartosz</imię>
+            <nazwisko>Banachowski</nazwisko>
+            <email>203849@edu.p.lodz.pl</email>
+        </autor>
+    </autorzy>
+
+    <sklep_rowerowy>
+        <rodzaj Id="S">Szosowy
+            <opis>Typ rowerów przeznaczony do szybkiej jazdy po asfaltowej nawierzchni</opis> 
+            <lista_rowerów>
+                <rower Id="S01">
+                    <producent idref="Kross" />
+                    <nazwa>Kross Vento 2.0</nazwa>
+                    <waga jednostka="kg">9,8</waga>
+                    <cena waluta="EUR">2599</cena>
+                    <RokZaprojektowania rok="2016"/>
+                </rower>
+                <rower Id="S02">
+                    <producent idref="Specialized"/>
+                    <nazwa>Allez Elite</nazwa>
+                    <waga jednostka="kg">9,2</waga>
+                    <cena waluta="USD">5799</cena>
+                    <RokZaprojektowania rok="2017"/>
+                </rower>
+                <rower Id="S03">
+                    <producent idref="Trek" />
+                    <nazwa>Domane SL 6 Disc</nazwa>
+                    <waga jednostka="kg">8,8</waga>
+                    <cena waluta="PLN">15499</cena>
+                    <RokZaprojektowania rok="2016"/>
+                </rower>
+                <rower Id="S04">
+                    <producent idref="Kross" />
+                    <nazwa>Vento Te</nazwa>
+                    <waga jednostka="kg">7,1</waga>
+                    <cena waluta="PLN">19999</cena>
+                    <RokZaprojektowania rok="2018"/>
+                </rower>
+                  <rower Id="S05">
+                    <producent idref="Trek" />
+                    <nazwa>Madone 9.5</nazwa>
+                    <waga jednostka="kg">8,0</waga>
+                    <cena waluta="PLN">36999</cena>
+                    <RokZaprojektowania rok="2016"/>
+                </rower>
+            </lista_rowerów>
+        </rodzaj>
+        <rodzaj Id="G">Górskie
+            <opis>Typ rowerów przeznaczony do jazdy po cięzkim terenie</opis>
+            <lista_rowerów>
+                <rower Id="G01">
+                    <producent idref="Kross" />
+                    <nazwa>Level 14.0</nazwa>
+                    <waga jednostka="kg">9,7</waga>
+                    <cena waluta="PLN">15999</cena>
+                    <RokZaprojektowania rok="2016"/>
+                </rower>
+                <rower Id="G02">
+                    <producent idref="Specialized" />
+                    <nazwa>S-Works XTR Di2</nazwa>
+                    <waga jednostka="kg">8,3</waga>
+                    <cena waluta="PLN">44999</cena>
+                    <RokZaprojektowania rok="2017"/>
+                </rower>
+                <rower Id="G03">
+                    <producent idref="Trek" />
+                    <nazwa>Procaliber 9.7</nazwa>
+                    <waga jednostka="kg">10,1</waga>
+                    <cena waluta="PLN">11299</cena>
+                    <RokZaprojektowania rok="2017"/>
+                </rower>
+                <rower Id="G04">
+                    <producent idref="Kross" />
+                    <nazwa>Roscoe 8</nazwa>
+                    <waga jednostka="kg">8,8</waga>
+                    <cena waluta="PLN">4899</cena>
+                    <RokZaprojektowania rok="2018"/>
+                </rower>
+                <rower Id="G05">
+                    <producent idref="Kross" />
+                    <nazwa>Lea 4.0</nazwa>
+                    <waga jednostka="kg">9,8</waga>
+                    <cena waluta="PLN">1699</cena>
+                    <RokZaprojektowania rok="2016"/>
+                </rower>
+            </lista_rowerów>
+        </rodzaj>
+		
+        <rodzaj Id="M">Miejskie
+            <opis>Typ rowerów przeznaczony do jazdy po mieście</opis>
+            <lista_rowerów>
+                <rower Id="M01">
+                    <producent idref="Trek" />
+                    <nazwa>T80 24 Speed Low</nazwa>
+                    <waga jednostka="kg">10,2</waga>
+                    <cena waluta="PLN">3199</cena>
+                    <RokZaprojektowania rok="2018"/>
+                </rower>
+                <rower Id="M02">
+                    <producent idref="Le_Grand" />
+                    <nazwa>Lille 4</nazwa>
+                    <waga jednostka="kg">11,1</waga>
+                    <cena waluta="PLN">1549</cena>
+                    <RokZaprojektowania rok="2018"/>
+                </rower>
+                <rower Id="M03">
+                    <producent idref="Le_Grand" />
+                    <nazwa>Virginia 3</nazwa>
+                    <waga jednostka="kg">9,8</waga>
+                    <cena waluta="PLN">2699</cena>
+                    <RokZaprojektowania rok="2016"/>
+                </rower>
+                <rower Id="M04">
+                    <producent idref="Trek" />
+                    <nazwa>T80 24 Speed Men</nazwa>
+                    <waga jednostka="kg">10,8</waga>
+                    <cena waluta="PLN">3199</cena>
+                    <RokZaprojektowania rok="2017"/>
+                </rower>
+                <rower Id="M05">
+                    <producent idref="Trek" />
+                    <nazwa>X500 Stagger</nazwa>
+                    <waga jednostka="kg">8,2</waga>
+                    <cena waluta="PLN">4499</cena>
+                    <RokZaprojektowania rok="2018"/>
+                </rower>
+            </lista_rowerów>
+        </rodzaj> 
+		
+        <rodzaj Id="E">Elektryczne
+            <opis>Typ rowerów z dodatkowym napędem elektrycznym wspomagającym pedałowanie</opis>
+            <lista_rowerów>
+                <rower Id="E01">
+                    <producent idref="Kross" />
+                    <nazwa>Lea Boost 1.0 </nazwa>
+                    <waga jednostka="kg">11,8</waga>
+                    <cena waluta="PLN">9499</cena>
+                    <RokZaprojektowania rok="2018"/>
+                </rower>
+                <rower Id="E02">
+                    <producent idref="Specialized" />
+                    <nazwa>Turbo Levo FSR</nazwa>
+                    <waga jednostka="kg">11,1</waga>
+                    <cena waluta="PLN">26899</cena>
+                    <RokZaprojektowania rok="2018"/>
+                </rower>
+                <rower Id="E03">
+                    <producent idref="Trek" />
+                    <nazwa>Powerfly 5</nazwa>
+                    <waga jednostka="kg">12,1</waga>
+                    <cena waluta="PLN">13499</cena>
+                    <RokZaprojektowania rok="2018"/>
+                </rower>
+                <rower Id="E04">
+                    <producent idref="Le_Grand" />
+                    <nazwa>Elille 2</nazwa>
+                    <waga jednostka="kg">9,9</waga>
+                    <cena waluta="PLN">4699</cena>
+                    <RokZaprojektowania rok="2017"/>
+                </rower>
+                <rower Id="E05">
+                    <producent idref="Specialized" />
+                    <nazwa>Turbo Vado 4.0 NB</nazwa>
+                    <waga jednostka="kg">10,5</waga>
+                    <cena waluta="PLN">15699</cena>
+                    <RokZaprojektowania rok="2018"/>
+                </rower>
+            </lista_rowerów>
+        </rodzaj>    
+		
+         <rodzaj Id="Z">Zjazdowy
+            <opis>Typ rowerów przeznaczony do szybkich zjazdów po stromych zboczach</opis> 
+            <lista_rowerów>
+                <rower Id="Z01">
+                    <producent idref="Specialized" />
+                    <nazwa>Demo 8 Carbon</nazwa>
+                    <waga jednostka="kg">8,2</waga>
+                    <cena waluta="PLN">26899</cena>
+                    <RokZaprojektowania rok="2017"/>
+                </rower>
+                <rower Id="Z02">
+                    <producent idref="Specialized"/>
+                    <nazwa>S-Works Demo 8</nazwa>
+                    <waga jednostka="kg">9,2</waga>
+                    <cena waluta="PLN">40399</cena>
+                    <RokZaprojektowania rok="2016"/>
+                </rower>
+                <rower Id="Z03">
+                    <producent idref="Specialized" />
+                    <nazwa>Demo 8 Alloy</nazwa>
+                    <waga jednostka="kg">8,8</waga>
+                    <cena waluta="PLN">18899</cena>
+                    <RokZaprojektowania rok="2018"/>
+                </rower>
+                <rower Id="Z04">
+                    <producent idref="Trek" />
+                    <nazwa>Session 8</nazwa>
+                    <waga jednostka="kg">9,3</waga>
+                    <cena waluta="PLN">17999</cena>
+                    <RokZaprojektowania rok="2016"/>
+                </rower>
+                  <rower Id="Z05">
+                    <producent idref="Trek" />
+                    <nazwa>Session 9.9 DH 27.5</nazwa>
+                    <waga jednostka="kg">10,2</waga>
+                    <cena waluta="PLN">37999</cena>
+                    <RokZaprojektowania rok="2018"/>
+                </rower>
+            </lista_rowerów>
+        </rodzaj>
+		
+        <producenci>
+            <pochodzenie Id="Kross" kraj="Polska" />
+            <pochodzenie Id="Specialized" kraj="USA" />
+            <pochodzenie Id="Trek" kraj="USA" />
+            <pochodzenie Id="Le_Grand" kraj="Polska" />           
+        </producenci>   
+		
+        <stopka dataUtworzenia="2018-03-25" dataEdycji="2018-04-11" />
+        
+    </sklep_rowerowy>  
+</dokument>
