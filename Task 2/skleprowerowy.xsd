@@ -6,11 +6,15 @@ targetNamespace="http://www.example.org/dokument"
 elementFormDefault="qualified" >
 
 <!--glowny dokument-->
-<xsd:complexType name="KlasaDokument">
+<xsd:group name="DokumentGroup">
     <xsd:sequence> 
         <xsd:element name="autorzy" type="dok:KlasaAutor" /> 
         <xsd:element name="sklep_rowerowy" type="dok:KlasaSklep" /> 
     </xsd:sequence> 
+</xsd:group>
+
+<xsd:complexType name="KlasaDokument">
+    <xsd:group ref="dok:DokumentGroup"/>
 </xsd:complexType>
 
 <!--autorzy-->
