@@ -37,6 +37,7 @@ elementFormDefault="qualified" >
     <xsd:restriction base="xsd:string">
         <xsd:minLength value="3"/>
         <xsd:maxLength value="40"/>
+        <xsd:pattern value="([A-Z]{1}([a-z])*)" />
     </xsd:restriction> 
 </xsd:simpleType>
 
@@ -44,18 +45,19 @@ elementFormDefault="qualified" >
     <xsd:restriction base="xsd:string">
         <xsd:minLength value="3"/>
         <xsd:maxLength value="40"/>
+        <xsd:pattern value="([A-Z]{1}([a-z])*)|([A-Z]{1}([a-z])*(\-|\s)([A-Z]{1}([a-z])*))" />
     </xsd:restriction> 
 </xsd:simpleType>
 
 <xsd:simpleType name="Email">
     <xsd:restriction base="xsd:string">
-        <xsd:maxLength value="40"/>
+        <xsd:maxLength value="20"/>
         <xsd:pattern value="[0-9]{6}@edu.p.lodz.pl"/>
     </xsd:restriction> 
 </xsd:simpleType>
 
 <xsd:simpleType name="KlasaIndeks">
-    <xsd:restriction base="xsd:integer">
+    <xsd:restriction base="xsd:positiveInteger">
         <xsd:pattern value="\d{6}"/>
     </xsd:restriction>
 </xsd:simpleType>
@@ -74,7 +76,7 @@ elementFormDefault="qualified" >
          <xsd:element name="opis" type="xsd:string" /> 
          <xsd:element name="lista_rowerów" type="dok:KlasaLista_Rowerow" /> 
     </xsd:sequence>
-    <xsd:attribute name="Id" use="required" type="dok:StrId"/>
+    <xsd:attribute name="Id" use="required" type="dok:IdRodzaj"/>
 </xsd:complexType>   
         
  <xsd:complexType name="KlasaLista_Rowerow">
@@ -91,13 +93,13 @@ elementFormDefault="qualified" >
         <xsd:element name="cena" type="dok:KlasaCena"/>
         <xsd:element name="RokZaprojektowania" type="dok:KlasaRokZaprojektowania"/>
     </xsd:sequence>
-    <xsd:attribute name="Id" use="required" type="dok:StrId"/>
+    <xsd:attribute name="Id" use="required" type="dok:IdRower"/>
  </xsd:complexType>   
  
  <xsd:complexType name="KlasaProducent">
     <xsd:simpleContent>
         <xsd:extension base="xsd:string">
-            <xsd:attribute name="idref" use="required" type="dok:StrId"/>
+            <xsd:attribute name="idref" use="required" type="dok:IdProducent"/>
         </xsd:extension>
     </xsd:simpleContent>
 </xsd:complexType>
@@ -110,7 +112,7 @@ elementFormDefault="qualified" >
 
 <xsd:complexType name="KlasaWaga">
     <xsd:simpleContent>
-        <xsd:extension base="xsd:string">
+        <xsd:extension base="xsd:double">
             <xsd:attribute name="jednostka" use="optional" type="dok:KlasaJednostki"/>
         </xsd:extension>
     </xsd:simpleContent>
@@ -119,13 +121,13 @@ elementFormDefault="qualified" >
 <xsd:simpleType name="KlasaJednostki">
     <xsd:restriction base="xsd:token">
         <xsd:enumeration value="kg"/>
-        <xsd:enumeration value="ibs"/>
+        <xsd:enumeration value="lbs"/>
     </xsd:restriction>
 </xsd:simpleType>
 
 <xsd:complexType name="KlasaCena">
     <xsd:simpleContent>
-        <xsd:extension base="xsd:string">
+        <xsd:extension base="xsd:double">
             <xsd:attribute name="waluta" use="required" type="dok:KlasaWaluta"/>
         </xsd:extension>
     </xsd:simpleContent>
@@ -144,17 +146,28 @@ elementFormDefault="qualified" >
 </xsd:complexType>
 
 <xsd:simpleType name="KlasaRok">
-    <xsd:restriction base="xsd:token">
-        <xsd:enumeration value="2016"/>
-        <xsd:enumeration value="2017"/>
-        <xsd:enumeration value="2018"/>
+    <xsd:restriction base="xsd:gYear">
+        <xsd:minInclusive value="1980" />
+        <xsd:maxExclusive value="2020" />
     </xsd:restriction>
 </xsd:simpleType>
         
-<xsd:simpleType name="StrId"> 
+<xsd:simpleType name="IdProducent"> 
     <xsd:restriction base="xsd:string">
-        <xsd:minLength value="1"/>
-        <xsd:maxLength value="80"/>
+        <xsd:maxLength value="20" />
+        <xsd:pattern value="([A-Z]{1}([a-z])*)" />
+    </xsd:restriction> 
+</xsd:simpleType>
+
+<xsd:simpleType name="IdRodzaj"> 
+    <xsd:restriction base="xsd:string">
+        <xsd:pattern value="[A-Z]{1}" />
+    </xsd:restriction> 
+</xsd:simpleType>
+
+<xsd:simpleType name="IdRower"> 
+    <xsd:restriction base="xsd:string">
+        <xsd:pattern value="[A-Z]{1}[0-9][0-9]" />
     </xsd:restriction> 
 </xsd:simpleType>
 
@@ -165,17 +178,17 @@ elementFormDefault="qualified" >
 </xsd:complexType>
 
 <xsd:complexType name="KlasaProducentRef">
-   <xsd:attribute name="Id" use="required" type="dok:StrId"/>
+   <xsd:attribute name="Id" use="required" type="dok:IdProducent"/>
    <xsd:attribute name="kraj" use="required" type="xsd:string"/>
 </xsd:complexType> 
 
 <xsd:element name="dokument" type="dok:KlasaDokument">
     <xsd:key name="IdKey">
-        <xsd:selector xpath="dok:sklep_rowerowy/dok:producenci/dok:producentt"/>
+        <xsd:selector xpath="dok:sklep_rowerowy/dok:producenci/dok:pochodzenie"/>
         <xsd:field xpath="@Id" />
     </xsd:key>
     <xsd:keyref name="LoginRef" refer="dok:IdKey">
-        <xsd:selector xpath="dok:sklep_rowerowy/dok:rodzaj/dok:lista_rowerów/dok:rower/dok:pochodzenie"/>
+        <xsd:selector xpath="dok:sklep_rowerowy/dok:rodzaj/dok:lista_rowerów/dok:rower/dok:producent"/>
         <xsd:field xpath="@idref" />
     </xsd:keyref>
 </xsd:element>
