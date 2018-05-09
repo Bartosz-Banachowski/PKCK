@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"  xmlns:date="http://exslt.org/dates-and-times" extension-element-prefixes="date"  xmlns:fn="http://www.w3.org/2005/xpath-functions">
+<xsl:stylesheet version="2.0"
+ xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+ xmlns:date="http://exslt.org/dates-and-times"
+ xmlns:fn="http://www.w3.org/2005/xpath-functions">
+ 
 	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
+		
 	
 	<xsl:template match="/dokument">
 		<xsl:apply-templates/>
 	</xsl:template>
+	
 	<xsl:template match="/">
 		<xsl:element name="dokument">
 			<xsl:apply-templates/>
@@ -63,7 +69,6 @@
 			</Raport>
 		</xsl:element>
 	</xsl:template>
-	<!--Sekcja dotycząca autorów -->
 	<xsl:template match="//autorzy">
 		<xsl:element name="autorzy">
 			<xsl:apply-templates select="autor"/>
@@ -83,7 +88,6 @@
 			</xsl:element>
 		</xsl:element>
 	</xsl:template>
-	<!--Sekcja dotycząca sklepu rowerowego -->
 	<xsl:template match="//sklep_rowerowy">
 		<xsl:element name="sklep_rowerowy">
 			<xsl:apply-templates select="rodzaj"/>
@@ -91,7 +95,6 @@
 			<xsl:apply-templates select="stopka"/>
 		</xsl:element>
 	</xsl:template>
-	<!-- Sekcja Rodzaj zawiera w sobie opis i listę rowerów -->
 	<xsl:template match="//rodzaj">
 		<xsl:element name="rodzaj">
 			<xsl:attribute name="Id"><xsl:value-of select="./@Id"/></xsl:attribute>
@@ -183,12 +186,6 @@
 		</xsl:element>
 	</xsl:template>
 
-	
-	
-	
-	
-
-	<!-- Każda lista rowerów zawiera w sobie rower -->
 	<xsl:template match="//lista_rowerów">
 		<xsl:element name="lista_rowerów">
 			<xsl:apply-templates select="rower"/>
@@ -268,10 +265,8 @@
 			</xsl:attribute>
 		</xsl:element>
 	</xsl:template>
-
-			
+		
 	<xsl:key name="producentKEY" match="pochodzenie" use="@Id"/>
-	<xsl:template match="@* | node()"/>
 	
 	<xsl:template match="producent">
 		<xsl:copy>

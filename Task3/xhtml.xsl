@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml" version="2.0">
-<xsl:output method="xhtml"  encoding="UTF-8" indent="yes"
+<xsl:output method="xhtml" version="1.0"  encoding="UTF-8" indent="yes"
 doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"
 doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" />
 
-	<xsl:template match="/dokument">
+	<xsl:template match="/">
 		<html>
 			<head>
 				<title>Zad 3</title>
@@ -55,9 +55,8 @@ doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" />
 	</xsl:template>
 
 	<xsl:template name="WszystkieRowery">
-		<div id="wszystkieRowery">
+		<div class="tabela">
 			<h2>Rowery</h2>
-			
 			<table>
 				
 					<tr>
@@ -71,7 +70,7 @@ doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" />
 					<xsl:for-each select="//rodzaj">
 						<tr>
 							<td>
-								<xsl:value-of select="./@nazwa"/>
+								<xsl:value-of select="@nazwa"/>
 							</td>
 							<td>
 								<xsl:value-of select="@liczbaRowerów"/>
@@ -95,7 +94,7 @@ doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" />
 	</xsl:template>
 	
 	<xsl:template name="Producenci">
-		<div id="producenci">
+		<div class="tabela">
 			<h2>Producenci</h2>
 			<table>
 				<tbody>
@@ -108,26 +107,26 @@ doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" />
 					<xsl:for-each select="//pochodzenie">
 					<tr>
 						<td>
-							<xsl:value-of select="./@firma"/>
+							<xsl:value-of select="@firma"/>
 						</td>
 						<td>
-							<xsl:value-of select="./@iloscRowerow"/>
+							<xsl:value-of select="@iloscRowerow"/>
 						</td>
 						<td>
-							<xsl:value-of select="./@kraj"/>
+							<xsl:value-of select="@kraj"/>
 						</td>
 						<td>
 							<xsl:if test="@firma = 'Kross'">
-								<img src="logo/kross.jpg" alt="error"/>
+								<img src="logo/kross.jpg" alt="kross"/>
 							</xsl:if>
 							<xsl:if test="@firma = 'Specialized'">
-								<img src="logo/specialized.jpg" alt="error"/>
+								<img src="logo/specialized.jpg" alt="specialized"/>
 							</xsl:if>
 							<xsl:if test="@firma = 'Trek'">
-								<img src="logo/trek.jpg" alt="error"/>
+								<img src="logo/trek.jpg" alt="trek"/>
 							</xsl:if>
 							<xsl:if test="@firma = 'Legrand'">
-								<img src="logo/legrand.png" alt="error"/>
+								<img src="logo/legrand.png" alt="legrand"/>
 							</xsl:if>
 						</td>
 					</tr>
@@ -139,7 +138,7 @@ doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" />
 	</xsl:template>
 
 	<xsl:template name="Rowery">
-		<div id="rowery">
+		<div class="tabela">
 			<h2>Sortowanie - przykład</h2>
 			<table>
 				<tbody>
@@ -165,7 +164,7 @@ doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" />
 	</xsl:template>
 	
 	<xsl:template name="RoweryKross">
-		<div id="roweryWedługProducentów">
+		<div class="tabela">
 			<h2>Rowery Kross</h2>
 			<table>
 				<tbody>
@@ -199,7 +198,7 @@ doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" />
 	</xsl:template>
 	
 	<xsl:template name="RowerySpecialized">
-		<div id="roweryWedługProducentów">
+		<div class="tabela">
 			<h2>Rowery Specialized</h2>
 			<table>
 				<tbody>
@@ -233,7 +232,7 @@ doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" />
 	</xsl:template>
 	
 	<xsl:template name="RoweryTrek">
-		<div id="roweryWedługProducentów">
+		<div class="tabela">
 			<h2>Rowery Trek</h2>
 			<table>
 				<tbody>
@@ -267,7 +266,7 @@ doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" />
 	</xsl:template>
 	
 	<xsl:template name="RoweryLegrand">
-		<div id="roweryWedługProducentów">
+		<div class="tabela">
 			<h2>Rowery Le Grand</h2>
 			<table>
 				<tbody>
@@ -301,7 +300,7 @@ doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" />
 	</xsl:template>
 	
 		<xsl:template name="RoweryEUR">
-			<div id="RoweryEUR">
+			<div class="tabela">
 			<h2>Rowery EUR</h2>
 				<table>
 					<tbody>
@@ -310,18 +309,20 @@ doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" />
 						<th>Cena rowerów EUR</th>
 						<th>Średnia cena rowerów EUR</th>
 						</tr>
+						<xsl:for-each select="//Raport">
 						<tr>
-							<td><xsl:value-of select="/dokument/Raport/Ilość_Rowerów_EUR"/></td>
-							<td><xsl:value-of select="/dokument/Raport/Cena_rowerów_euro"/></td>
-							<td><xsl:value-of select="/dokument/Raport/Średnia_cena_rowerów_EUR"/></td>
+							<td><xsl:value-of select="Ilość_Rowerów_EUR"/></td>
+							<td><xsl:value-of select="Cena_rowerów_euro"/></td>
+							<td><xsl:value-of select="Średnia_cena_rowerów_EUR"/></td>
 						</tr>
+						</xsl:for-each>
 					</tbody>
 				</table>
 			</div>
 		</xsl:template>
 		
 		<xsl:template name="RoweryUSD">
-			<div id="RoweryUSD">
+			<div class="tabela">
 			<h2>Rowery USD</h2>
 				<table>
 					<tbody>
@@ -330,18 +331,20 @@ doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" />
 						<th>Cena rowerów USD</th>
 						<th>Średnia cena rowerów USD</th>
 						</tr>
+						<xsl:for-each select="//Raport">
 						<tr>
-							<td><xsl:value-of select="/dokument/Raport/Ilość_Rowerów_USD"/></td>
-							<td><xsl:value-of select="/dokument/Raport/Cena_rowerów_usd"/></td>
-							<td><xsl:value-of select="/dokument/Raport/Średnia_cena_rowerów_usd"/></td>
+							<td><xsl:value-of select="Ilość_Rowerów_USD"/></td>
+							<td><xsl:value-of select="Cena_rowerów_usd"/></td>
+							<td><xsl:value-of select="Średnia_cena_rowerów_usd"/></td>
 						</tr>
+						</xsl:for-each>
 					</tbody>
 				</table>
 			</div>
 		</xsl:template>
 		
 		<xsl:template name="RoweryPLN">
-			<div id="RoweryPLN">
+			<div class="tabela">
 			<h2>Rowery PLN</h2>
 				<table>
 					<tbody>
@@ -350,18 +353,20 @@ doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" />
 						<th>Cena rowerów PLN</th>
 						<th>Średnia cena rowerów PLN</th>
 						</tr>
+						<xsl:for-each select="//Raport">
 						<tr>
-							<td><xsl:value-of select="/dokument/Raport/Ilość_Rowerów_PLN"/></td>
-							<td><xsl:value-of select="/dokument/Raport/Cena_rowerów_pln"/></td>
-							<td><xsl:value-of select="/dokument/Raport/Średnia_cena_rowerów_PLN"/></td>
+							<td><xsl:value-of select="Ilość_Rowerów_PLN"/></td>
+							<td><xsl:value-of select="Cena_rowerów_pln"/></td>
+							<td><xsl:value-of select="Średnia_cena_rowerów_PLN"/></td>
 						</tr>
+						</xsl:for-each>
 					</tbody>
 				</table>
 			</div>
 		</xsl:template>
 	
 	<xsl:template name="Raport">
-		<div id="raport">
+		<div class="tabela">
 			<h2>Raport</h2>
 			<table>
 				<tbody>
@@ -369,12 +374,14 @@ doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" />
 						<th>Ilość wszystkich rowerów</th>
 						<th>Ilość wszystkich producentów</th>
 						<th>Data wygenerowania raportu</th>
-					</tr>	
-					<tr>
-						<td><xsl:value-of select="/dokument/Raport/Ilość_wszystkich_rowerów"/></td>
-						<td><xsl:value-of select="/dokument/Raport/Ilość_producentów"/></td>
-						<td><xsl:value-of select="/dokument/Raport/DataRaportu"/></td>
 					</tr>
+					<xsl:for-each select="//Raport">
+					<tr>
+						<td><xsl:value-of select="Ilość_wszystkich_rowerów"/></td>
+						<td><xsl:value-of select="Ilość_producentów"/></td>
+						<td><xsl:value-of select="DataRaportu"/></td>
+					</tr>
+					</xsl:for-each>
 				</tbody>
 			</table>
 		</div>
