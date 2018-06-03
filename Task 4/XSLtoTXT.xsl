@@ -14,13 +14,13 @@
 	</xsl:template>
 
 	<xsl:template match="/">
-		<xsl:text>TXT&#xA;</xsl:text>
+		<xsl:text>Dokument tekstowy&#xA;</xsl:text>
 		<xsl:apply-templates />
 	</xsl:template>
 	
 	<xsl:template match="sklep_rowerowy">
 		<xsl:text>&#xA;</xsl:text>
-		<xsl:text>ROWERY:&#xA;</xsl:text>
+		<xsl:text>SKLEP ROWEROWY:&#xA;</xsl:text>
 		<xsl:apply-templates select="rodzaj" />
 		<xsl:text>&#xA;</xsl:text>
 		<xsl:apply-templates select="producenci"/>
@@ -29,16 +29,16 @@
 	
 	<xsl:template match="rodzaj">
 		<xsl:text>&#xA;</xsl:text>
-		<xsl:text>RODZAJ:</xsl:text>
-		<xsl:value-of select="concat('&#x9;&#x9;',./@nazwa,'&#xA;')" />
+		<xsl:text>Rodzaj:</xsl:text>
+		<xsl:value-of select="concat('&#x9;',./@nazwa,'&#xA;')" />
 		<xsl:text>&#xA;</xsl:text>
 		
 		<xsl:text>Opis:</xsl:text>
-		<xsl:value-of select="concat('&#x9;&#x9;',opis, '&#xA;')" />
+		<xsl:value-of select="concat('&#x9;',opis, '&#xA;')" />
 		<xsl:text>&#xA;</xsl:text>
 		
 		<xsl:text>Liczba rowerów:</xsl:text>
-		<xsl:value-of select="concat('&#x9;&#x9;',./@liczbaRowerów,'&#xA;')" />
+		<xsl:value-of select="concat('&#x9;&#x9;&#x9;&#x9;',./@liczbaRowerów,'&#xA;')" />
 		<xsl:text>&#xA;</xsl:text>
 		
 		<xsl:text>Średnia waga rowerów:</xsl:text>
@@ -46,7 +46,7 @@
 		<xsl:text>&#xA;</xsl:text>
 		
 		<xsl:text>Maksymalna waga rowerów:</xsl:text>
-		<xsl:value-of select="concat('&#x9;&#x9;',./@maxWagaRowerów,'&#xA;')" />
+		<xsl:value-of select="concat('&#x9;',./@maxWagaRowerów,'&#xA;')" />
 		<xsl:text>&#xA;</xsl:text>
 		
 		<xsl:text>Minimalna waga rowerów:</xsl:text>
@@ -66,27 +66,27 @@
 	
 	<xsl:template match="rower">
 	
-		<xsl:text>&#x9;&#x9;Id:</xsl:text>
-		<xsl:value-of select="concat('&#x9;&#x9;',./@Id,'&#xA;')" />
+		<xsl:text>&#xA;&#x9;&#x9;Id:&#x9;</xsl:text>
+		<xsl:value-of select="concat(./@Id,'&#xA;')" />
 		<xsl:text>&#xA;</xsl:text>
 		
 		<xsl:text>&#x9;&#x9;&#x9;Producent:</xsl:text>
-		<xsl:value-of select="concat('&#x9;&#x9;&#x9;',./@producent,'&#xA;')" />
+		<xsl:value-of select="concat('&#x9;&#x9;&#x9;&#x9;',./@producent,'&#xA;')" />
 		<xsl:text>&#xA;</xsl:text>
 		
 		<xsl:text>&#x9;&#x9;&#x9;Nazwa:</xsl:text>
-		<xsl:value-of select="concat('&#x9;&#x9;&#x9;',nazwa,'&#xA;')" />
+		<xsl:value-of select="concat('&#x9;&#x9;&#x9;&#x9;&#x9;',nazwa,'&#xA;')" />
 		<xsl:text>&#xA;</xsl:text>
 		
 			
 		
 		<xsl:text>&#x9;&#x9;&#x9;Waga:</xsl:text>
-		<xsl:value-of select="concat('&#x9;&#x9;&#x9;',waga,' ')" />
+		<xsl:value-of select="concat('&#x9;&#x9;&#x9;&#x9;&#x9;',waga,' ')" />
 		<xsl:apply-templates select="waga"/>
 		<xsl:text>&#xA;</xsl:text>		
 		
 		<xsl:text>&#x9;&#x9;&#x9;Cena:</xsl:text>
-		<xsl:value-of select="concat('&#x9;&#x9;&#x9;',cena,' ')" />
+		<xsl:value-of select="concat('&#x9;&#x9;&#x9;&#x9;&#x9;',cena,' ')" />
 		<xsl:apply-templates select="cena"/>
 		<xsl:text>&#xA;</xsl:text>
 		
@@ -111,7 +111,7 @@
 	</xsl:template>
 	
 	<xsl:template match="RokZaprojektowania">
-		<xsl:value-of select="concat('&#x9;&#x9;&#x9;',./@rok)" />
+		<xsl:value-of select="concat('&#x9;',./@rok)" />
 		<xsl:text>&#xA;</xsl:text>
 	</xsl:template>
 	
@@ -121,10 +121,10 @@
 	</xsl:template>
 	
 	<xsl:template match="autor">
-		<xsl:value-of select="concat('nr indeksu: ', ./@Indeks,'&#xA;')" />
 		<xsl:value-of select="concat('Imie: ',./imię,'&#xA;')" />
 		<xsl:value-of select="concat('Nazwisko: ',./nazwisko, '&#xA;')" />
 		<xsl:value-of select="concat('Email: ',./email,'&#xA;')" />
+		<xsl:value-of select="concat('nr indeksu: ', ./@Indeks,'&#xA;')" />
 		<xsl:text>&#xA;</xsl:text>
 	</xsl:template>
 	
@@ -140,28 +140,29 @@
 	</xsl:template>
 	
 	<xsl:template match="stopka">
-		<xsl:value-of select="concat('Data utworzenia: ', ./Ilość_wszystkich_rowerów,'&#xA;')" />
+		<xsl:value-of select="concat('Data utworzenia: ', ./@dataUtworzenia,'&#xA;')" />
 		<xsl:value-of select="concat('Data edycji: ', ./@dataEdycji,'&#xA;')" />
 	</xsl:template>
 	
 	<xsl:template match="Raport">
-	<xsl:text>&#xA;RAPORT:&#xA;</xsl:text>
-		<xsl:value-of select="concat('Ilość wszystkich rowerów: ', ./Ilość_wszystkich_rowerów,'&#xA;')" />
+	<xsl:text>&#xA;&#xA;RAPORT:&#xA;</xsl:text>
+		<xsl:value-of select="concat('&#x9;Ilość producentów: ',./Ilość_producentów,'&#xA;')"/>
+		<xsl:value-of select="concat('&#x9;Ilość wszystkich rowerów: ', ./Ilość_wszystkich_rowerów,'&#xA;&#xA;')" />
 	
-		<xsl:value-of select="concat('Ilość rowerów euro: ', ./Ilość_Rowerów_EUR,'&#xA;')" />
-		<xsl:value-of select="concat('Cena rowerów euro: ', ./Cena_rowerów_euro,' EUR','&#xA;')" />
-		<xsl:value-of select="concat('Srednia cena rowerów euro: ', ./Średnia_cena_rowerów_EUR,' EUR','&#xA;')" />
+		<xsl:value-of select="concat('&#x9;Ilość rowerów euro: ', ./Ilość_Rowerów_EUR,'&#xA;')" />
+		<xsl:value-of select="concat('&#x9;Cena rowerów euro: ', ./Cena_rowerów_euro,' EUR','&#xA;')" />
+		<xsl:value-of select="concat('&#x9;Srednia cena rowerów euro: ', ./Średnia_cena_rowerów_EUR,' EUR','&#xA;&#xA;')" />
 		
-		<xsl:value-of select="concat('Ilość rowerów USD: ', ./Ilość_Rowerów_USD,'&#xA;')" />
-		<xsl:value-of select="concat('Cena rowerów USD: ', ./Cena_rowerów_USD,' USD','&#xA;')" />
-		<xsl:value-of select="concat('Srednia cena rowerów USD: ', ./Średnia_cena_rowerów_USD,' USD','&#xA;')" />
+		<xsl:value-of select="concat('&#x9;Ilość rowerów USD: ', ./Ilość_Rowerów_USD,'&#xA;')" />
+		<xsl:value-of select="concat('&#x9;Cena rowerów USD: ', ./Cena_rowerów_USD,' USD','&#xA;')" />
+		<xsl:value-of select="concat('&#x9;Srednia cena rowerów USD: ', ./Średnia_cena_rowerów_USD,' USD','&#xA;&#xA;')" />
 		
-		<xsl:value-of select="concat('Ilość rowerów PLN: ', ./Ilość_Rowerów_PLN,'&#xA;')" />
-		<xsl:value-of select="concat('Cena rowerów PLN: ', ./Cena_rowerów_PLN,' PLN','&#xA;')" />
-		<xsl:value-of select="concat('Srednia cena rowerów PLN: ', ./Średnia_cena_rowerów_PLN,' PLN','&#xA;')" />
+		<xsl:value-of select="concat('&#x9;Ilość rowerów PLN: ', ./Ilość_Rowerów_PLN,'&#xA;')" />
+		<xsl:value-of select="concat('&#x9;Cena rowerów PLN: ', ./Cena_rowerów_PLN,' PLN','&#xA;')" />
+		<xsl:value-of select="concat('&#x9;Srednia cena rowerów PLN: ', ./Średnia_cena_rowerów_PLN,' PLN','&#xA;&#xA;')" />
 		
-		<xsl:value-of select="concat('Ilość producentów: ',./Ilość_producentów,'&#xA;')"/>
 		
-		<xsl:value-of select="concat('Data utworzenia raportu: ',./DataRaportu)"/>
+		
+		<xsl:value-of select="concat('&#x9;Data utworzenia raportu: ',./DataRaportu)"/>
 	</xsl:template>
 	</xsl:stylesheet>
