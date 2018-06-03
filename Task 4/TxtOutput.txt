@@ -1,0 +1,430 @@
+TXT
+
+AUTORZY:
+nr indeksu: 203979
+Imie: Lukasz
+Nazwisko: Rogozinski-Zlota
+Email: 203979@edu.p.lodz.pl
+
+nr indeksu: 203849
+Imie: Bartosz
+Nazwisko: Banachowski
+Email: 203849@edu.p.lodz.pl
+
+
+ROWERY:
+
+RODZAJ:		Szosowy
+
+Opis:		Typ rowerów przeznaczony do szybkiej jazdy po asfaltowej nawierzchni
+
+Liczba rowerów:		5
+
+Średnia waga rowerów:		8.58
+
+Maksymalna waga rowerów:		9.8
+
+Minimalna waga rowerów:		7.1
+
+	Rowery:
+		Id:		S01
+
+			Producent:			Kross
+
+			Nazwa:			kross Vento 2.0
+
+			Waga:			9.8 kg
+
+			Cena:			2599.25 PLN
+
+			Rok Zaprojektowania:			2016
+
+			Wiek roweru:			2 
+		Id:		S02
+
+			Producent:			Specialized
+
+			Nazwa:			Allez Elite
+
+			Waga:			9.2 kg
+
+			Cena:			5799 USD
+
+			Rok Zaprojektowania:			2017
+
+			Wiek roweru:			1 
+		Id:		S03
+
+			Producent:			Trek
+
+			Nazwa:			Domane SL 6 Disc
+
+			Waga:			8.8 kg
+
+			Cena:			15499 EUR
+
+			Rok Zaprojektowania:			2016
+
+			Wiek roweru:			2 
+		Id:		S04
+
+			Producent:			Kross
+
+			Nazwa:			Vento Te
+
+			Waga:			7.1 kg
+
+			Cena:			19999 PLN
+
+			Rok Zaprojektowania:			2015
+
+			Wiek roweru:			3 
+		Id:		S05
+
+			Producent:			Trek
+
+			Nazwa:			Madone 9.5
+
+			Waga:			8.0 kg
+
+			Cena:			36999 EUR
+
+			Rok Zaprojektowania:			2016
+
+			Wiek roweru:			2 
+
+RODZAJ:		Górskie
+
+Opis:		Typ rowerów przeznaczony do jazdy po cięzkim terenie
+
+Liczba rowerów:		4
+
+Średnia waga rowerów:		9.225
+
+Maksymalna waga rowerów:		10.1
+
+Minimalna waga rowerów:		8.3
+
+	Rowery:
+		Id:		G01
+
+			Producent:			Kross
+
+			Nazwa:			Level 14.0
+
+			Waga:			9.7 kg
+
+			Cena:			15999 PLN
+
+			Rok Zaprojektowania:			2016
+
+			Wiek roweru:			2 
+		Id:		G02
+
+			Producent:			Specialized
+
+			Nazwa:			S-Works XTR Di2
+
+			Waga:			8.3 kg
+
+			Cena:			44999 USD
+
+			Rok Zaprojektowania:			2017
+
+			Wiek roweru:			1 
+		Id:		G03
+
+			Producent:			Trek
+
+			Nazwa:			Procaliber 9.7
+
+			Waga:			10.1 kg
+
+			Cena:			11299 EUR
+
+			Rok Zaprojektowania:			2017
+
+			Wiek roweru:			1 
+		Id:		G04
+
+			Producent:			Kross
+
+			Nazwa:			Roscoe 8
+
+			Waga:			8.8 kg
+
+			Cena:			4899 PLN
+
+			Rok Zaprojektowania:			2016
+
+			Wiek roweru:			2 
+
+RODZAJ:		Miejskie
+
+Opis:		Typ rowerów przeznaczony do jazdy po mieście
+
+Liczba rowerów:		5
+
+Średnia waga rowerów:		10.02
+
+Maksymalna waga rowerów:		11.1
+
+Minimalna waga rowerów:		8.2
+
+	Rowery:
+		Id:		M01
+
+			Producent:			Trek
+
+			Nazwa:			T80 24 Speed Low
+
+			Waga:			10.2 kg
+
+			Cena:			3199 PLN
+
+			Rok Zaprojektowania:			2016
+
+			Wiek roweru:			2 
+		Id:		M02
+
+			Producent:			Legrand
+
+			Nazwa:			Lille 4
+
+			Waga:			11.1 kg
+
+			Cena:			1549 PLN
+
+			Rok Zaprojektowania:			2017
+
+			Wiek roweru:			1 
+		Id:		M03
+
+			Producent:			Legrand
+
+			Nazwa:			Virginia 3
+
+			Waga:			9.8 kg
+
+			Cena:			2699 PLN
+
+			Rok Zaprojektowania:			2016
+
+			Wiek roweru:			2 
+		Id:		M04
+
+			Producent:			Trek
+
+			Nazwa:			T80 24 Speed Men
+
+			Waga:			10.8 kg
+
+			Cena:			3199 EUR
+
+			Rok Zaprojektowania:			2017
+
+			Wiek roweru:			1 
+		Id:		M05
+
+			Producent:			Trek
+
+			Nazwa:			X500 Stagger
+
+			Waga:			8.2 kg
+
+			Cena:			4499 EUR
+
+			Rok Zaprojektowania:			2016
+
+			Wiek roweru:			2 
+
+RODZAJ:		Elektryczne
+
+Opis:		Typ rowerów z dodatkowym napędem elektrycznym wspomagającym pedałowanie
+
+Liczba rowerów:		5
+
+Średnia waga rowerów:		11.08
+
+Maksymalna waga rowerów:		12.1
+
+Minimalna waga rowerów:		9.9
+
+	Rowery:
+		Id:		E01
+
+			Producent:			Kross
+
+			Nazwa:			Lea Boost 1.0 
+
+			Waga:			11.8 kg
+
+			Cena:			9499 PLN
+
+			Rok Zaprojektowania:			2015
+
+			Wiek roweru:			3 
+		Id:		E02
+
+			Producent:			Specialized
+
+			Nazwa:			Turbo Levo FSR
+
+			Waga:			11.1 kg
+
+			Cena:			26899 USD
+
+			Rok Zaprojektowania:			2016
+
+			Wiek roweru:			2 
+		Id:		E03
+
+			Producent:			Trek
+
+			Nazwa:			Powerfly 5
+
+			Waga:			12.1 kg
+
+			Cena:			13499 EUR
+
+			Rok Zaprojektowania:			2016
+
+			Wiek roweru:			2 
+		Id:		E04
+
+			Producent:			Legrand
+
+			Nazwa:			Elille 2
+
+			Waga:			9.9 kg
+
+			Cena:			4699 PLN
+
+			Rok Zaprojektowania:			2017
+
+			Wiek roweru:			1 
+		Id:		E05
+
+			Producent:			Specialized
+
+			Nazwa:			Turbo Vado 4.0 NB
+
+			Waga:			10.5 kg
+
+			Cena:			15699 USD
+
+			Rok Zaprojektowania:			2017
+
+			Wiek roweru:			1 
+
+RODZAJ:		Zjazdowy
+
+Opis:		Typ rowerów przeznaczony do szybkich zjazdów po stromych zboczach
+
+Liczba rowerów:		5
+
+Średnia waga rowerów:		9.14
+
+Maksymalna waga rowerów:		10.2
+
+Minimalna waga rowerów:		8.2
+
+	Rowery:
+		Id:		Z01
+
+			Producent:			Specialized
+
+			Nazwa:			Demo 8 Carbon
+
+			Waga:			8.2 kg
+
+			Cena:			26899 USD
+
+			Rok Zaprojektowania:			2017
+
+			Wiek roweru:			1 
+		Id:		Z02
+
+			Producent:			Specialized
+
+			Nazwa:			S-Works Demo 8
+
+			Waga:			9.2 kg
+
+			Cena:			40399 USD
+
+			Rok Zaprojektowania:			2016
+
+			Wiek roweru:			2 
+		Id:		Z03
+
+			Producent:			Specialized
+
+			Nazwa:			Demo 8 Alloy
+
+			Waga:			8.8 kg
+
+			Cena:			18899 USD
+
+			Rok Zaprojektowania:			2016
+
+			Wiek roweru:			2 
+		Id:		Z04
+
+			Producent:			Trek
+
+			Nazwa:			Session 8
+
+			Waga:			9.3 kg
+
+			Cena:			17999 EUR
+
+			Rok Zaprojektowania:			2016
+
+			Wiek roweru:			2 
+		Id:		Z05
+
+			Producent:			Trek
+
+			Nazwa:			Session 9.9 DH 27.5
+
+			Waga:			10.2 kg
+
+			Cena:			37999 EUR
+
+			Rok Zaprojektowania:			2017
+
+			Wiek roweru:			1 
+
+	Firma: Kross
+	Ilość rowerów: 5
+	Kraj: Polska
+
+	Firma: Specialized
+	Ilość rowerów: 7
+	Kraj: USA
+
+	Firma: Trek
+	Ilość rowerów: 9
+	Kraj: USA
+
+	Firma: Legrand
+	Ilość rowerów: 3
+	Kraj: Polska
+
+Data utworzenia: 
+Data edycji: 2018-04-11
+
+RAPORT:
+Ilość wszystkich rowerów: 24
+Ilość rowerów euro: 8
+Cena rowerów euro: 140992 EUR
+Srednia cena rowerów euro: 17624 EUR
+Ilość rowerów USD: 7
+Cena rowerów USD:  USD
+Srednia cena rowerów USD:  USD
+Ilość rowerów PLN: 9
+Cena rowerów PLN:  PLN
+Srednia cena rowerów PLN: 7238 PLN
+Ilość producentów: 4
+Data utworzenia raportu: 2018-05-17T10:57:18+02:00
