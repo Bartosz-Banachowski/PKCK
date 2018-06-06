@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace SklepRowerowyApp.Model
+namespace SklepRowerowyApp.XMLModel
 {
     [XmlRoot("pochodzenie", Namespace = "http://www.example.org/dokument")]
     public class Pochodzenie

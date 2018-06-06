@@ -5,51 +5,91 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SklepRowerowyApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800">
-
+        Title="MainWindow" Height="600" Width="1200">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="310"/>
+            <ColumnDefinition Width="600"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
 
-        <Label Grid.Column="0" Grid.Row="0" Content="Rodzaj" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-        <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Rodzaj}"  Width="200" Height="25" Margin="2,5"/>
-        <Label Grid.Column="0" Grid.Row="1" Content="ID" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-        <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding ID}"  Width="200" Height="25" Margin="2,5"/>
-        <Label Grid.Column="0" Grid.Row="2" Content="Producent" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-        <ComboBox Grid.Column="1" Grid.Row="2" ItemsSource="{Binding ListaProducentow}" SelectedItem="{Binding WybranyProducent}" Width="200" Height="25" Margin="2,5"/>
-        <Label Grid.Column="0" Grid.Row="3" Content="Nazwa" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-        <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Nazwa}"  Width="200" Height="25" Margin="2,5"/>
-        <Label Grid.Column="0" Grid.Row="4" Content="Waga" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-        <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding Waga}"  Width="200" Height="25" Margin="2,5"/>
-        <Label Grid.Column="0" Grid.Row="5" Content="Jednostka" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-        <ComboBox Grid.Column="1" Grid.Row="5" ItemsSource="{Binding ListaJednostek}" SelectedItem="{Binding WybranaJednostka}" Width="200" Height="25" Margin="2,5"/>
-        <Label Grid.Column="0" Grid.Row="6" Content="Cena" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-        <TextBox Grid.Column="1" Grid.Row="6" Text="{Binding Cena}" Width="200" Height="25" Margin="2,5"/>
-        <Label Grid.Column="0" Grid.Row="7" Content="Waluta" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-        <ComboBox Grid.Column="1" Grid.Row="7" ItemsSource="{Binding ListaWalut}" SelectedItem="{Binding WybranaWaluta}" Width="200" Height="25" Margin="2,5"/>
-        <Label Grid.Column="0" Grid.Row="8" Content="Rok stworzenia" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-        <TextBox Grid.Column="1" Grid.Row="8" Text="{Binding RokStworzenia}" Width="200" Height="25" Margin="2,5"/>
-        <Button Content="Wczytaj" Grid.Column="1" Command="{Binding WczytajDane}" Grid.Row="9" Width="100" Height="20" Margin="2,5"/>
-        <Button Content="Dodaj" Grid.Column="1" Command="{Binding DodajDane}" Grid.Row="10" Width="100" Height="20" Margin="2,5"/>
-        <Button Content="Usuń" Grid.Column="1" Command="{Binding UsunDane}" Grid.Row="11" Width="100" Height="20" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="0" Content="Rodzaj" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <ComboBox Grid.Column="1" Grid.Row="0" ItemsSource="{Binding ListaRodzajow}" SelectedItem="{Binding WybranyRodzaj}"  Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="1" Content="ID" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding ID}"  Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="2" Content="Producent" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <ComboBox Grid.Column="1" Grid.Row="2" ItemsSource="{Binding ListaProducentow}" SelectedItem="{Binding WybranyProducent}" Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="3" Content="Nazwa" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Nazwa}"  Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="4" Content="Waga" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding Waga}"  Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="5" Content="Jednostka" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <ComboBox Grid.Column="1" Grid.Row="5" ItemsSource="{Binding ListaJednostek}" SelectedItem="{Binding WybranaJednostka}" Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="6" Content="Cena" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <TextBox Grid.Column="1" Grid.Row="6" Text="{Binding Cena}" Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="7" Content="Waluta" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <ComboBox Grid.Column="1" Grid.Row="7" ItemsSource="{Binding ListaWalut}" SelectedItem="{Binding WybranaWaluta}" Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="8" Content="Rok stworzenia" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <TextBox Grid.Column="1" Grid.Row="8" Text="{Binding RokStworzenia}" Width="200" Height="25" Margin="2,5"/>
+            <Button Content="Wczytaj" Grid.Column="1" Command="{Binding WczytajDane}" Grid.Row="9" Width="100" Height="20" Margin="2,5"/>
+            <Button Content="Dodaj" Grid.Column="1" Command="{Binding DodajDane}" Grid.Row="10" Width="100" Height="20" Margin="2,5"/>
+            <Button Content="Usuń" Grid.Column="1" Command="{Binding UsunDane}" Grid.Row="11" Width="100" Height="20" Margin="2,5"/>
+        </Grid>
 
+        <GroupBox Grid.Column="1">
+            <ListBox x:Name="RoweryListBox" ItemsSource="{Binding ListaRowerowM}" SelectedItem="{Binding WybranyRowerM}" ScrollViewer.VerticalScrollBarVisibility="Visible" Width="540" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="50"/>
+                            </Grid.ColumnDefinitions>
+                        <Border BorderBrush="Gray" BorderThickness="1" Grid.Row="0" Grid.Column="0"/>
+                        <Border BorderBrush="Gray" BorderThickness="1" Grid.Row="0" Grid.Column="1"/>
+                        <Border BorderBrush="Gray" BorderThickness="1" Grid.Row="0" Grid.Column="2"/>
+                        <Border BorderBrush="Gray" BorderThickness="1" Grid.Row="0" Grid.Column="3"/>
+                        <Border BorderBrush="Gray" BorderThickness="1" Grid.Row="0" Grid.Column="4"/>
+                        <Border BorderBrush="Gray" BorderThickness="1" Grid.Row="0" Grid.Column="5"/>
+                        <Border BorderBrush="Gray" BorderThickness="1" Grid.Row="0" Grid.Column="6"/>
+                        <Border BorderBrush="Gray" BorderThickness="1" Grid.Row="0" Grid.Column="7"/>
+                        <Border BorderBrush="Gray" BorderThickness="1" Grid.Row="0" Grid.Column="8"/>
+                        <Border BorderBrush="Gray" BorderThickness="1" Grid.Row="0" Grid.Column="9"/>
+
+                        <TextBlock Grid.Column="0" Text="{Binding Id}" Margin="2"/>
+                        <TextBlock Grid.Column="1" Text="{Binding IdRodzaj}" Margin="2"/>
+                        <TextBlock Grid.Column="2" Text="{Binding Producent}" Margin="2"/>
+                        <TextBlock Grid.Column="3" Text="{Binding Nazwa}" Margin="2"/>
+                        <TextBlock Grid.Column="4" Text="{Binding Waga}" Margin="2"/>
+                        <TextBlock Grid.Column="5" Text="{Binding Cena}" Margin="2"/>
+                        <TextBlock Grid.Column="6" Text="{Binding RokZaprojektowania}" Margin="2"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        </GroupBox>
     </Grid>
 </Window>

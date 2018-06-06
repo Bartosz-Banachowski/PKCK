@@ -1,0 +1,15 @@
+D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\bin\Debug\SklepRowerowyApp.exe.config
+D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\bin\Debug\SklepRowerowyApp.exe
+D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\bin\Debug\SklepRowerowyApp.pdb
+D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\obj\Debug\SklepRowerowyApp.csprojResolveAssemblyReference.cache
+D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\obj\Debug\MainWindow.g.cs
+D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\obj\Debug\App.g.cs
+D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\obj\Debug\SklepRowerowyApp_MarkupCompile.cache
+D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\obj\Debug\SklepRowerowyApp_MarkupCompile.lref
+D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\obj\Debug\MainWindow.baml
+D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\obj\Debug\SklepRowerowyApp.g.resources
+D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\obj\Debug\SklepRowerowyApp.Properties.Resources.resources
+D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\obj\Debug\SklepRowerowyApp.csproj.GenerateResource.cache
+D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\obj\Debug\SklepRowerowyApp.csproj.CoreCompileInputs.cache
+D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\obj\Debug\SklepRowerowyApp.exe
+D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\obj\Debug\SklepRowerowyApp.pdb

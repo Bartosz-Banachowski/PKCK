@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace SklepRowerowyApp.Model
+namespace SklepRowerowyApp.XMLModel
 {
     [XmlRoot("rodzaj", Namespace = "http://www.example.org/dokument")]
     public partial class Rodzaj

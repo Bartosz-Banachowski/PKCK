@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace SklepRowerowyApp.Model
+namespace SklepRowerowyApp.XMLModel
 {
     [XmlRoot("sklep_rowerowy", Namespace = "http://www.example.org/dokument")]
     public class SklepRowerowy

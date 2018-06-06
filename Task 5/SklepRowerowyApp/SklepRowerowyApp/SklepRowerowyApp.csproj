@@ -55,20 +55,22 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DelegateCommand.cs" />
-    <Compile Include="Model\Autor.cs" />
-    <Compile Include="Model\Autorzy.cs" />
-    <Compile Include="Model\Cena.cs" />
-    <Compile Include="Model\Dokument.cs" />
-    <Compile Include="Model\ListaRowerow.cs" />
-    <Compile Include="Model\Pochodzenie.cs" />
-    <Compile Include="Model\Producenci.cs" />
-    <Compile Include="Model\Producent.cs" />
-    <Compile Include="Model\Rodzaj.cs" />
-    <Compile Include="Model\RokZaprojektowania.cs" />
-    <Compile Include="Model\Rower.cs" />
-    <Compile Include="Model\SklepRowerowy.cs" />
-    <Compile Include="Model\Stopka.cs" />
-    <Compile Include="Model\Waga.cs" />
+    <Compile Include="Model\RowerM.cs" />
+    <Compile Include="Model\RoweryM.cs" />
+    <Compile Include="XMLModel\Autor.cs" />
+    <Compile Include="XMLModel\Autorzy.cs" />
+    <Compile Include="XMLModel\Cena.cs" />
+    <Compile Include="XMLModel\Dokument.cs" />
+    <Compile Include="XMLModel\ListaRowerow.cs" />
+    <Compile Include="XMLModel\Pochodzenie.cs" />
+    <Compile Include="XMLModel\Producenci.cs" />
+    <Compile Include="XMLModel\Producent.cs" />
+    <Compile Include="XMLModel\Rodzaj.cs" />
+    <Compile Include="XMLModel\RokZaprojektowania.cs" />
+    <Compile Include="XMLModel\Rower.cs" />
+    <Compile Include="XMLModel\SklepRowerowy.cs" />
+    <Compile Include="XMLModel\Stopka.cs" />
+    <Compile Include="XMLModel\Waga.cs" />
     <Compile Include="ViewModel\MyViewModel.cs" />
     <Compile Include="XML\XMLReader.cs" />
     <Page Include="MainWindow.xaml">
@@ -102,6 +104,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Dokumenty\skleprowerowy.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -111,5 +116,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Dokumenty\skleprowerowy.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

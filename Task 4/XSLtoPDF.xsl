@@ -329,8 +329,8 @@
 	
 	<xsl:text>&#xD;&#xA;&#xA;</xsl:text>
 	
-	<fo:block font-size="8px" text-align="left" font-family="Helvetica" margin-left="1.5cm" margin-right="1.5cm">
-		<fo:block text-align="center" margin="20" font-weight="bold" space-before="105pt">
+	<fo:block font-size="8px" text-align="right" font-family="Helvetica" margin-left="1.5cm" margin-right="1.5cm">
+		<fo:block text-align="right" margin="20" font-weight="500" space-before="105pt">
 			<xsl:text>Rowery Trek</xsl:text>
 			<xsl:text>&#xD;&#xA;</xsl:text>
 		</fo:block>
@@ -427,7 +427,7 @@
 	
 	<xsl:text>&#xD;&#xA;&#xA;</xsl:text>
 	
-	<fo:block font-size="8px" text-align="left" font-family="Times" margin-left="1.5cm" margin-right="1.5cm">
+	<fo:block font-size="8px" text-align="left" font-family="Segoe UI" margin-left="1.5cm" margin-right="1.5cm">
 		<fo:block text-align="center" margin="20" font-weight="bold" space-before="105pt">
 			<xsl:text>Rowery EUR</xsl:text>
 			<xsl:text>&#xD;&#xA;</xsl:text> 
@@ -468,7 +468,7 @@
 	
 	<xsl:text>&#xD;&#xA;&#xA;</xsl:text>
 	
-	<fo:block font-size="8px" text-align="left" font-family="Pragmatica" margin-left="1.5cm" margin-right="1.5cm">
+	<fo:block font-size="8px" text-align="left" font-family="Segoe UI" margin-left="1.5cm" margin-right="1.5cm">
 		<fo:block text-align="center" margin="20" font-weight="bold" space-before="105pt">
 			<xsl:text>Rowery USD</xsl:text>
 			<xsl:text>&#xD;&#xA;</xsl:text> 
@@ -509,8 +509,10 @@
 	
 	<xsl:text>&#xD;&#xA;&#xA;</xsl:text>
 	
-	<fo:block font-size="8px" text-align="left" font-family="Helvetica" margin-left="1.5cm" margin-right="1.5cm">
-		<fo:block text-align="center" margin="20" font-weight="bold" space-before="105pt">
+	
+	<fo:block font-size="8px" text-align="left" font-family="Segoe UI" margin-left="1.5cm" margin-right="1.5cm">
+		<fo:block text-align="center" margin="20" font-weight="bold">
+			<xsl:text>&#xD;&#xA;</xsl:text>
 			<xsl:text>Rowery PLN</xsl:text>
 			<xsl:text>&#xD;&#xA;</xsl:text> 
 		</fo:block>
@@ -551,7 +553,7 @@
   
  	<xsl:text>&#xD;&#xA;&#xA;</xsl:text>
 
-	<fo:block font-size="8px" text-align="left" font-family="Helvetica" margin-left="1.5cm" margin-right="1.5cm">
+	<fo:block font-size="8px" text-align="left" font-family="Segoe UI" margin-left="1.5cm" margin-right="1.5cm">
 		 <fo:block text-align="center" margin="20" font-weight="bold" space-before="105pt">
 			<xsl:text>Raport</xsl:text>
 			<fo:table border="solid black" width="100%">
