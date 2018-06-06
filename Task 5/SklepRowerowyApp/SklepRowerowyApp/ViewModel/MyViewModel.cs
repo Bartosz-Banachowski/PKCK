@@ -15,9 +15,62 @@ namespace SklepRowerowyApp.ViewModel
 
         public MyViewModel()
         {
+            StworzListaProducentow();
+            StworzListaJednostek();
+            StworzListaWalut();
+        }
+
+        private List<string> _listaProducentow, _listaJednostek, _listaWalut;
+        private string _wybranyProducent, _wybranaJednostka, _wybranaWaluta;
+        public List<string> ListaProducentow
+        {
+            get { return _listaProducentow;}
+            set { this._listaProducentow = value;
+                RaisePropertyChanged("ListaProducentow");}
+        }
+        public string WybranyProducent
+        {
+            get { return _wybranyProducent; }
+            set { this._wybranyProducent = value; }
+        }
+
+        public List<string> ListaJednostek
+        {
+            get { return _listaJednostek; }
+            set { this._listaJednostek = value;
+                RaisePropertyChanged("ListaJednostek"); }
+        }
+
+        public string WybranaJednostka
+        {
+            get { return _wybranaJednostka; }
+            set { this._wybranaJednostka = value; }
+        }
+
+        public List<string> ListaWalut
+        {
+            get { return _listaWalut; }
+            set { this._listaWalut = value;
+                RaisePropertyChanged("ListaWalut");
+            }
+        }
+
+        public string WybranaWaluta
+        {
+            get { return _wybranaWaluta; }
+            set { this._wybranaWaluta = value; }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void RaisePropertyChanged(string propertyName_)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName_));
+        }
+
+        public void StworzListaProducentow()
+        {
             ListaProducentow = new List<string>()
             {
-
                 "Kross",
                 "Specialized",
                 "Legrand",
@@ -25,28 +78,23 @@ namespace SklepRowerowyApp.ViewModel
             };
         }
 
-        private List<string> _listaProducentow;
-        private string _wybranyProducent;
-        public List<string> ListaProducentow
+        public void StworzListaJednostek()
         {
-            get {
-                return _listaProducentow;
-            }
-            set { this._listaProducentow = value;
-                RaisePropertyChanged("ListaProducentow");
-            }
+            ListaJednostek = new List<string>()
+            {
+                "kg",
+                "lbs"
+            };
         }
 
-        public string WybranyProducent
+        public void StworzListaWalut()
         {
-            get { return _wybranyProducent; }
-            set { this._wybranyProducent = value; }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void RaisePropertyChanged(string propertyName_)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName_));
+            ListaWalut = new List<string>()
+            {
+                "PLN",
+                "EUR",
+                "USD"
+            };
         }
     }
 }
