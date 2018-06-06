@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SklepRowerowyApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1200">
+        Title="MainWindow" Height="600" Width="1220">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="310"/>
             <ColumnDefinition Width="600"/>
+            <ColumnDefinition Width="310"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0" >
             <Grid.ColumnDefinitions>
@@ -91,5 +92,47 @@
             </ListBox.ItemTemplate>
         </ListBox>
         </GroupBox>
+
+        <Grid Grid.Column="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0" Content="Rodzaj" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <ComboBox Grid.Column="1" Grid.Row="0" ItemsSource="{Binding ListaRodzajowEdycja}" SelectedItem="{Binding WybranyRodzajEdycja, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="1" Content="ID" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding IDEdycja}"  Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="2" Content="Producent" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <ComboBox Grid.Column="1" Grid.Row="2" ItemsSource="{Binding ListaProducentow}" SelectedItem="{Binding WybranyProducentEdycja, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="3" Content="Nazwa" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding NazwaEdycja}"  Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="4" Content="Waga" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding WagaEdycja}"  Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="5" Content="Jednostka" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <ComboBox Grid.Column="1" Grid.Row="5" ItemsSource="{Binding ListaJednostek}" SelectedItem="{Binding WybranaJednostkaEdycja, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="6" Content="Cena" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <TextBox Grid.Column="1" Grid.Row="6" Text="{Binding CenaEdycja}" Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="7" Content="Waluta" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <ComboBox Grid.Column="1" Grid.Row="7" ItemsSource="{Binding ListaWalut}" SelectedItem="{Binding WybranaWalutaEdycja, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="8" Content="Rok stworzenia" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <TextBox Grid.Column="1" Grid.Row="8" Text="{Binding RokStworzeniaEdycja}" Width="200" Height="25" Margin="2,5"/>
+            <Button Content="Edytuj" Grid.Column="1" Command="{Binding ZapiszDane}" Grid.Row="9" Width="100" Height="20" Margin="2,5"/>
+           
+        </Grid>
     </Grid>
 </Window>

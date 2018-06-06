@@ -22,25 +22,42 @@ namespace SklepRowerowyApp.ViewModel
             StworzListaJednostek();
             StworzListaWalut();
             StworzListaRodzajow();
+            StworzListaRodzajowEdycja();
 
             WczytajDane = new DelegateCommand(Wczytaj);
             DodajDane = new DelegateCommand(Dodaj);
             UsunDane = new DelegateCommand(Usun);
+            ZapiszDane = new DelegateCommand(Zapisz);
         }
 
         public ICommand WczytajDane { get; }
         public ICommand DodajDane { get; }
         public ICommand UsunDane { get; }
+        public ICommand ZapiszDane { get; }
         private RowerM wybranyRowerM;
         private ObservableCollection<RowerM> _listaRowerowM;
-        private List<string> _listaProducentow, _listaJednostek, _listaWalut, _listaRodzajow;
+        private List<string> _listaProducentow, _listaJednostek, _listaWalut, _listaRodzajow, _listaRodzajowEdycja;
         private string _wybranyProducent, _wybranaJednostka, _wybranaWaluta, _wybranyRodzaj, _id, _nazwa, _waga, _cena, _rokStworzenia;
 
         public RowerM WybranyRowerM
         {
             get { return wybranyRowerM; }
-            set { this.wybranyRowerM = value; }
+            set { this.wybranyRowerM = value;
+                if (WybranyRowerM != null)
+                {
+                    WybranyRodzajEdycja = WybranyRowerM.IdRodzaj;
+                    IDEdycja = WybranyRowerM.Id;
+                    WybranyProducentEdycja = WybranyRowerM.Producent;
+                    NazwaEdycja = WybranyRowerM.Nazwa;
+                    WagaEdycja = WybranyRowerM.Waga.Substring(0, WybranyRowerM.Waga.Length - 3);
+                    WybranaJednostkaEdycja = WybranyRowerM.Waga.Substring(WybranyRowerM.Waga.Length - 2);
+                    CenaEdycja = WybranyRowerM.Cena.Substring(0, WybranyRowerM.Cena.Length - 4);
+                    WybranaWalutaEdycja = WybranyRowerM.Cena.Substring(WybranyRowerM.Cena.Length - 3);
+                    RokStworzeniaEdycja = WybranyRowerM.RokZaprojektowania;
+                }
+                }
         }
+
         public RoweryM RoweryM { get; set; }
         public ObservableCollection<RowerM> ListaRowerowM
         {
@@ -48,6 +65,13 @@ namespace SklepRowerowyApp.ViewModel
             set { this._listaRowerowM = value;
                 RaisePropertyChanged("ListaRowerowM");
             }
+        }
+
+        public List<string> ListaRodzajowEdycja
+        {
+            get { return _listaRodzajowEdycja; }
+            set { this._listaRodzajowEdycja = value; }
+
         }
 
         public Dokument Dokument { get; set; }
@@ -136,7 +160,85 @@ namespace SklepRowerowyApp.ViewModel
         }
         #endregion
 
-        
+        #region edycja rowerow
+
+        private string wybranyRodzajEdycja, idEdycja, wybranyProducentEdycja, nazwaEdycja, wagaEdycja, wybranaJednostkaEdycja, cenaEdycja, wybranaWalutaEdycja, rokStworzeniaEdycja;
+
+        public string WybranyRodzajEdycja
+        {
+            get { return wybranyRodzajEdycja; }
+            set { this.wybranyRodzajEdycja = value;
+                RaisePropertyChanged("WybranyRodzajEdycja");
+            }
+        }
+
+        public string IDEdycja
+        {
+            get { return idEdycja; }
+            set { this.idEdycja = value;
+                RaisePropertyChanged("IDEdycja");
+            }
+        }
+
+        public string WybranyProducentEdycja
+        {
+            get { return wybranyProducentEdycja; }
+            set { this.wybranyProducentEdycja = value;
+                RaisePropertyChanged("WybranyProducentEdycja");
+            }
+        }
+
+        public string NazwaEdycja
+        {
+            get { return nazwaEdycja; }
+            set { this.nazwaEdycja = value;
+                RaisePropertyChanged("NazwaEdycja");
+            }
+        }
+
+        public string WagaEdycja
+        {
+            get { return wagaEdycja; }
+            set { this.wagaEdycja = value;
+                RaisePropertyChanged("WagaEdycja");
+            }
+        }
+
+        public string WybranaJednostkaEdycja
+        {
+            get { return wybranaJednostkaEdycja; }
+            set { this.wybranaJednostkaEdycja = value;
+                RaisePropertyChanged("WybranaJednostkaEdycja");
+            }
+        }
+
+        public string CenaEdycja
+        {
+            get { return cenaEdycja; }
+            set { this.cenaEdycja = value;
+                RaisePropertyChanged("CenaEdycja");
+            }
+        }
+
+        public string WybranaWalutaEdycja
+        {
+            get { return wybranaJednostkaEdycja; }
+            set { this.wybranaJednostkaEdycja = value;
+                RaisePropertyChanged("WybranaWalutaEdycja");
+            }
+        }
+
+        public string RokStworzeniaEdycja
+        {
+            get { return rokStworzeniaEdycja; }
+            set { this.rokStworzeniaEdycja = value;
+                RaisePropertyChanged("RokStworzeniaEdycja");
+            }
+        }
+
+        #endregion
+
+
         public event PropertyChangedEventHandler PropertyChanged;
         private void RaisePropertyChanged(string propertyName_)
         {
@@ -182,6 +284,18 @@ namespace SklepRowerowyApp.ViewModel
                 "Miejskie",
                 "Elektryczne",
                 "Zjazdowy"
+            };
+        }
+
+        public void StworzListaRodzajowEdycja()
+        {
+            ListaRodzajowEdycja = new List<string>()
+            {
+                "S",
+                "G",
+                "M",
+                "E",
+                "Z"
             };
         }
 
@@ -246,6 +360,45 @@ namespace SklepRowerowyApp.ViewModel
                 ListaRowerowM.Remove(WybranyRowerM);
                 XmlReader.ZapiszDane(Dokument);
             }   
+        }
+
+        public void Zapisz()
+        {
+
+            Dokument.ListaSklepowRowerowych.FirstOrDefault().ListaRodzaj.SingleOrDefault(x => x.IdRodzaj == WybranyRowerM.IdRodzaj).ListaListaRowerow.FirstOrDefault().ListaRower.RemoveAll(x => x.IdRower == WybranyRowerM.Id);
+
+            Rower rower = new Rower()
+            {
+                IdRower = IDEdycja
+            };
+            rower.ListaProducent = new List<Producent>();
+            rower.ListaProducent.Add(new Producent() { Idref = WybranyProducentEdycja });
+
+            rower.ListaNazwa = new List<string>();
+            rower.ListaNazwa.Add(NazwaEdycja);
+
+            rower.ListaWaga = new List<Waga>();
+            rower.ListaWaga.Add(new Waga() { Jednostka = WybranaJednostkaEdycja, WagaWartosc = WagaEdycja });
+
+            rower.ListaCena = new List<Cena>();
+            rower.ListaCena.Add(new Cena() { Waluta = WybranaWalutaEdycja, CenaWartosc = CenaEdycja });
+
+            rower.ListaRokZaprojektowania = new List<RokZaprojektowania>();
+            rower.ListaRokZaprojektowania.Add(new RokZaprojektowania() { Rok = RokStworzeniaEdycja });
+
+            Dokument.ListaSklepowRowerowych.FirstOrDefault().ListaRodzaj.FirstOrDefault(x => x.IdRodzaj == WybranyRodzajEdycja).ListaListaRowerow.FirstOrDefault().ListaRower.Add(rower);
+
+            try
+            {
+                XmlReader.ZapiszDane(Dokument);
+                RoweryM = new RoweryM(Dokument);
+                ListaRowerowM = RoweryM.getListaRowerowM();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("cos nie bangla");
+            }
+
         }
 
         public void StworzIdRowera(string typ)
