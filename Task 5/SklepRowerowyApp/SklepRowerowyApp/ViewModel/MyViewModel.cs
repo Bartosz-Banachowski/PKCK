@@ -24,9 +24,13 @@ namespace SklepRowerowyApp.ViewModel
             StworzListaRodzajow();
 
             WczytajDane = new DelegateCommand(Wczytaj);
+            DodajDane = new DelegateCommand(Dodaj);
+            UsunDane = new DelegateCommand(Usun);
         }
 
         public ICommand WczytajDane { get; }
+        public ICommand DodajDane { get; }
+        public ICommand UsunDane { get; }
         private RowerM wybranyRowerM;
         private ObservableCollection<RowerM> _listaRowerowM;
         private List<string> _listaProducentow, _listaJednostek, _listaWalut, _listaRodzajow;
@@ -143,10 +147,10 @@ namespace SklepRowerowyApp.ViewModel
         {
             ListaProducentow = new List<string>()
             {
-                "Kross",
-                "Specialized",
-                "Legrand",
-                "Trek"
+                "kross",
+                "specialized",
+                "legrand",
+                "trek"
             };
         }
 
@@ -196,6 +200,57 @@ namespace SklepRowerowyApp.ViewModel
                 MessageBox.Show("Done");
             }
             ListaRowerowM = RoweryM.getListaRowerowM();
+        }
+
+        public void Dodaj()
+        {
+            Rower rower = new Rower()
+            {
+                IdRower = ID
+            };
+            rower.ListaProducent = new List<Producent>();
+            rower.ListaProducent.Add(new Producent() {Idref = WybranyProducent });
+
+            rower.ListaNazwa = new List<string>();
+            rower.ListaNazwa.Add(Nazwa);
+
+            rower.ListaWaga = new List<Waga>();
+            rower.ListaWaga.Add(new Waga() {Jednostka = WybranaJednostka, WagaWartosc = Waga });
+
+            rower.ListaCena = new List<Cena>();
+            rower.ListaCena.Add(new Cena() {Waluta = WybranaWaluta, CenaWartosc = Cena });
+
+            rower.ListaRokZaprojektowania = new List<RokZaprojektowania>();
+            rower.ListaRokZaprojektowania.Add(new RokZaprojektowania() { Rok = RokStworzenia });
+           
+            Dokument.ListaSklepowRowerowych.FirstOrDefault().ListaRodzaj.FirstOrDefault(x => x.NazwaRodzaj == WybranyRodzaj).ListaListaRowerow.FirstOrDefault().ListaRower.Add(rower);
+
+            try
+            {
+                XmlReader.ZapiszDane(Dokument);
+                RoweryM = new RoweryM(Dokument);
+                ListaRowerowM = RoweryM.getListaRowerowM();
+            } catch (Exception e)
+            {
+                MessageBox.Show("cos nie bangla");
+            }
+        }
+
+        public void Usun()
+        {
+            MessageBoxResult messageBoxResult = MessageBox.Show("Usunac wybrany rower?",WybranyRowerM.Nazwa.ToString(), MessageBoxButton.YesNo);
+            if(messageBoxResult == MessageBoxResult.Yes)
+            {
+                Dokument.ListaSklepowRowerowych.FirstOrDefault().ListaRodzaj.SingleOrDefault(x => x.IdRodzaj == WybranyRowerM.IdRodzaj).ListaListaRowerow.FirstOrDefault().ListaRower.RemoveAll(x => x.IdRower == WybranyRowerM.Id);
+               // RoweryM.ListaRowerowM.Remove(WybranyRowerM);
+                ListaRowerowM.Remove(WybranyRowerM);
+                XmlReader.ZapiszDane(Dokument);
+            }   
+        }
+
+        public void StworzIdRowera(string typ)
+        {
+            string id = typ.ElementAt(0).ToString();
         }
     }
 }
