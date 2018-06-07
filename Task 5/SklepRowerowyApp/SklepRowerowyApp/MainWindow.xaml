@@ -29,30 +29,27 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <Label Grid.Column="0" Grid.Row="0" Content="Rodzaj" VerticalAlignment="Center" HorizontalAlignment="Right"/>
             <ComboBox Grid.Column="1" Grid.Row="0" ItemsSource="{Binding ListaRodzajow}" SelectedItem="{Binding WybranyRodzaj}"  Width="200" Height="25" Margin="2,5"/>
-            <Label Grid.Column="0" Grid.Row="1" Content="ID" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding ID}"  Width="200" Height="25" Margin="2,5"/>
-            <Label Grid.Column="0" Grid.Row="2" Content="Producent" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <ComboBox Grid.Column="1" Grid.Row="2" ItemsSource="{Binding ListaProducentow}" SelectedItem="{Binding WybranyProducent}" Width="200" Height="25" Margin="2,5"/>
-            <Label Grid.Column="0" Grid.Row="3" Content="Nazwa" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Nazwa}"  Width="200" Height="25" Margin="2,5"/>
-            <Label Grid.Column="0" Grid.Row="4" Content="Waga" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding Waga}"  Width="200" Height="25" Margin="2,5"/>
-            <Label Grid.Column="0" Grid.Row="5" Content="Jednostka" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <ComboBox Grid.Column="1" Grid.Row="5" ItemsSource="{Binding ListaJednostek}" SelectedItem="{Binding WybranaJednostka}" Width="200" Height="25" Margin="2,5"/>
-            <Label Grid.Column="0" Grid.Row="6" Content="Cena" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <TextBox Grid.Column="1" Grid.Row="6" Text="{Binding Cena}" Width="200" Height="25" Margin="2,5"/>
-            <Label Grid.Column="0" Grid.Row="7" Content="Waluta" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <ComboBox Grid.Column="1" Grid.Row="7" ItemsSource="{Binding ListaWalut}" SelectedItem="{Binding WybranaWaluta}" Width="200" Height="25" Margin="2,5"/>
-            <Label Grid.Column="0" Grid.Row="8" Content="Rok stworzenia" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <TextBox Grid.Column="1" Grid.Row="8" Text="{Binding RokStworzenia}" Width="200" Height="25" Margin="2,5"/>
-            <Button Content="Wczytaj" Grid.Column="1" Command="{Binding WczytajDane}" Grid.Row="9" Width="100" Height="20" Margin="2,5"/>
-            <Button Content="Dodaj" Grid.Column="1" Command="{Binding DodajDane}" Grid.Row="10" Width="100" Height="20" Margin="2,5"/>
-            <Button Content="Usuń" Grid.Column="1" Command="{Binding UsunDane}" Grid.Row="11" Width="100" Height="20" Margin="2,5"/>
+           <Label Grid.Column="0" Grid.Row="1" Content="Producent" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <ComboBox Grid.Column="1" Grid.Row="1" ItemsSource="{Binding ListaProducentow}" SelectedItem="{Binding WybranyProducent}" Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="2" Content="Nazwa" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Nazwa}"  Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="3" Content="Waga" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Waga}"  Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="4" Content="Jednostka" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <ComboBox Grid.Column="1" Grid.Row="4" ItemsSource="{Binding ListaJednostek}" SelectedItem="{Binding WybranaJednostka}" Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="5" Content="Cena" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding Cena}" Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="6" Content="Waluta" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <ComboBox Grid.Column="1" Grid.Row="6" ItemsSource="{Binding ListaWalut}" SelectedItem="{Binding WybranaWaluta}" Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="7" Content="Rok stworzenia" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <TextBox Grid.Column="1" Grid.Row="7" Text="{Binding RokStworzenia}" Width="200" Height="25" Margin="2,5"/>
+            <Button Content="Wczytaj" Grid.Column="1" Command="{Binding WczytajDane}" Grid.Row="8" Width="100" Height="20" Margin="2,5"/>
+            <Button Content="Dodaj" Grid.Column="1" Command="{Binding DodajDane}" Grid.Row="9" Width="100" Height="20" Margin="2,5"/>
+            <Button Content="Usuń" Grid.Column="1" Command="{Binding UsunDane}" Grid.Row="10" Width="100" Height="20" Margin="2,5"/>
         </Grid>
 
         <GroupBox Grid.Column="1">
@@ -111,28 +108,32 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <Label Grid.Column="0" Grid.Row="0" Content="Rodzaj" VerticalAlignment="Center" HorizontalAlignment="Right"/>
             <ComboBox Grid.Column="1" Grid.Row="0" ItemsSource="{Binding ListaRodzajowEdycja}" SelectedItem="{Binding WybranyRodzajEdycja, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Width="200" Height="25" Margin="2,5"/>
-            <Label Grid.Column="0" Grid.Row="1" Content="ID" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding IDEdycja}"  Width="200" Height="25" Margin="2,5"/>
-            <Label Grid.Column="0" Grid.Row="2" Content="Producent" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <ComboBox Grid.Column="1" Grid.Row="2" ItemsSource="{Binding ListaProducentow}" SelectedItem="{Binding WybranyProducentEdycja, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="200" Height="25" Margin="2,5"/>
-            <Label Grid.Column="0" Grid.Row="3" Content="Nazwa" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding NazwaEdycja}"  Width="200" Height="25" Margin="2,5"/>
-            <Label Grid.Column="0" Grid.Row="4" Content="Waga" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding WagaEdycja}"  Width="200" Height="25" Margin="2,5"/>
-            <Label Grid.Column="0" Grid.Row="5" Content="Jednostka" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <ComboBox Grid.Column="1" Grid.Row="5" ItemsSource="{Binding ListaJednostek}" SelectedItem="{Binding WybranaJednostkaEdycja, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="200" Height="25" Margin="2,5"/>
-            <Label Grid.Column="0" Grid.Row="6" Content="Cena" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <TextBox Grid.Column="1" Grid.Row="6" Text="{Binding CenaEdycja}" Width="200" Height="25" Margin="2,5"/>
-            <Label Grid.Column="0" Grid.Row="7" Content="Waluta" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <ComboBox Grid.Column="1" Grid.Row="7" ItemsSource="{Binding ListaWalut}" SelectedItem="{Binding WybranaWalutaEdycja, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="200" Height="25" Margin="2,5"/>
-            <Label Grid.Column="0" Grid.Row="8" Content="Rok stworzenia" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <TextBox Grid.Column="1" Grid.Row="8" Text="{Binding RokStworzeniaEdycja}" Width="200" Height="25" Margin="2,5"/>
-            <Button Content="Edytuj" Grid.Column="1" Command="{Binding ZapiszDane}" Grid.Row="9" Width="100" Height="20" Margin="2,5"/>
-           
+            <Label Grid.Column="0" Grid.Row="1" Content="Producent" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <ComboBox Grid.Column="1" Grid.Row="1" ItemsSource="{Binding ListaProducentow}" SelectedItem="{Binding WybranyProducentEdycja, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="2" Content="Nazwa" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding NazwaEdycja}"  Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="3" Content="Waga" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding WagaEdycja}"  Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="4" Content="Jednostka" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <ComboBox Grid.Column="1" Grid.Row="4" ItemsSource="{Binding ListaJednostek}" SelectedItem="{Binding WybranaJednostkaEdycja, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="5" Content="Cena" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding CenaEdycja}" Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="6" Content="Waluta" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <ComboBox Grid.Column="1" Grid.Row="6" ItemsSource="{Binding ListaWalut}" SelectedItem="{Binding WybranaWalutaEdycja, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="200" Height="25" Margin="2,5"/>
+            <Label Grid.Column="0" Grid.Row="7" Content="Rok stworzenia" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <TextBox Grid.Column="1" Grid.Row="7" Text="{Binding RokStworzeniaEdycja}" Width="200" Height="25" Margin="2,5"/>
+            <Button Content="Edytuj" Grid.Column="1" Command="{Binding ZapiszDane}" Grid.Row="8" Width="100" Height="20" Margin="2,5"/>
+            <Button Content="PDF" Grid.Column="1" Command="{Binding KonwertujDoPDF}" Grid.Row="9" Width="100" Height="20" Margin="2,5"/>
+            <Button Content="XHTML" Grid.Column="1" Command="{Binding KonwertujDoXHTML}" Grid.Row="10" Width="100" Height="20" Margin="2,5"/>
+            <Button Content="SVG" Grid.Column="1" Command="{Binding KonwertujDoSVG}" Grid.Row="11" Width="100" Height="20" Margin="2,5"/>
+            <Button Content="TXT" Grid.Column="1" Command="{Binding KonwertujDoTXT}" Grid.Row="12" Width="100" Height="20" Margin="2,5"/>
+
         </Grid>
     </Grid>
 </Window>

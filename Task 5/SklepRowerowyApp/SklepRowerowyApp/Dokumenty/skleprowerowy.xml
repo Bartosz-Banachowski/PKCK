@@ -56,13 +56,6 @@
     <rodzaj Id="G" nazwa="Górskie">
       <opis>Typ rowerów przeznaczony do jazdy po cięzkim terenie</opis>
       <lista_rowerów>
-        <rower Id="G01">
-          <producent idref="kross" />
-          <nazwa>Level 14.0</nazwa>
-          <waga jednostka="kg">9.7</waga>
-          <cena waluta="PLN">15999</cena>
-          <RokZaprojektowania rok="2016" />
-        </rower>
         <rower Id="G02">
           <producent idref="specialized" />
           <nazwa>S-Works XTR Di2</nazwa>
@@ -82,6 +75,13 @@
           <nazwa>Roscoe 8</nazwa>
           <waga jednostka="kg">8.8</waga>
           <cena waluta="PLN">4899</cena>
+          <RokZaprojektowania rok="2016" />
+        </rower>
+        <rower Id="G05">
+          <producent idref="kross" />
+          <nazwa>Level 14.0</nazwa>
+          <waga jednostka="EUR">9.7</waga>
+          <cena waluta="PLN">15999</cena>
           <RokZaprojektowania rok="2016" />
         </rower>
       </lista_rowerów>
@@ -203,6 +203,13 @@
           <waga jednostka="kg">10.2</waga>
           <cena waluta="EUR">37999</cena>
           <RokZaprojektowania rok="2017" />
+        </rower>
+        <rower Id="Z07">
+          <producent idref="specialized" />
+          <nazwa>qeqweqwewqewqe</nazwa>
+          <waga jednostka="kg">12412</waga>
+          <cena waluta="EUR">123213</cena>
+          <RokZaprojektowania rok="12321" />
         </rower>
       </lista_rowerów>
     </rodzaj>

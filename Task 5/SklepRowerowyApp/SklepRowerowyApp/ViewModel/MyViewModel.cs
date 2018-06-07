@@ -10,6 +10,10 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using SklepRowerowyApp.Model;
+using ibex4;
+using System.IO;
+using System.Xml.Xsl;
+using System.Xml;
 
 namespace SklepRowerowyApp.ViewModel
 {
@@ -28,12 +32,20 @@ namespace SklepRowerowyApp.ViewModel
             DodajDane = new DelegateCommand(Dodaj);
             UsunDane = new DelegateCommand(Usun);
             ZapiszDane = new DelegateCommand(Zapisz);
+            KonwertujDoPDF = new DelegateCommand(XSLtoPDF);
+            KonwertujDoXHTML = new DelegateCommand(TransformXMLToHTML);
+            KonwertujDoSVG = new DelegateCommand(TransformXMLToSVG);
+            KonwertujDoTXT = new DelegateCommand(TransformXMLToTXT);
         }
 
         public ICommand WczytajDane { get; }
         public ICommand DodajDane { get; }
         public ICommand UsunDane { get; }
         public ICommand ZapiszDane { get; }
+        public ICommand KonwertujDoPDF { get; }
+        public ICommand KonwertujDoXHTML { get; }
+        public ICommand KonwertujDoSVG { get; }
+        public ICommand KonwertujDoTXT { get; }
         private RowerM wybranyRowerM;
         private ObservableCollection<RowerM> _listaRowerowM;
         private List<string> _listaProducentow, _listaJednostek, _listaWalut, _listaRodzajow, _listaRodzajowEdycja;
@@ -222,8 +234,8 @@ namespace SklepRowerowyApp.ViewModel
 
         public string WybranaWalutaEdycja
         {
-            get { return wybranaJednostkaEdycja; }
-            set { this.wybranaJednostkaEdycja = value;
+            get { return wybranaWalutaEdycja; }
+            set { this.wybranaWalutaEdycja = value;
                 RaisePropertyChanged("WybranaWalutaEdycja");
             }
         }
@@ -311,16 +323,25 @@ namespace SklepRowerowyApp.ViewModel
             {
                 Dokument = XmlReader.WczytajDane();
                 RoweryM = new RoweryM(Dokument);
-                MessageBox.Show("Done");
+                MessageBox.Show("Sukces!");
             }
             ListaRowerowM = RoweryM.getListaRowerowM();
         }
 
         public void Dodaj()
         {
+            var coTo = Dokument.ListaSklepowRowerowych.FirstOrDefault().ListaRodzaj.FirstOrDefault(x => x.IdRodzaj == WybranyRodzaj.ElementAt(0).ToString()).ListaListaRowerow.FirstOrDefault().ListaRower.Count + 1;
+
+            var IDtemp = WybranyRodzaj.ElementAt(0).ToString() + coTo.ToString();
+            if(IDtemp.Length == 2)
+            {
+                IDtemp = WybranyRodzaj.ElementAt(0).ToString() + "0" + coTo.ToString();
+            }
+
+
             Rower rower = new Rower()
             {
-                IdRower = ID
+                IdRower = IDtemp
             };
             rower.ListaProducent = new List<Producent>();
             rower.ListaProducent.Add(new Producent() {Idref = WybranyProducent });
@@ -336,8 +357,13 @@ namespace SklepRowerowyApp.ViewModel
 
             rower.ListaRokZaprojektowania = new List<RokZaprojektowania>();
             rower.ListaRokZaprojektowania.Add(new RokZaprojektowania() { Rok = RokStworzenia });
-           
+
+            
+
             Dokument.ListaSklepowRowerowych.FirstOrDefault().ListaRodzaj.FirstOrDefault(x => x.NazwaRodzaj == WybranyRodzaj).ListaListaRowerow.FirstOrDefault().ListaRower.Add(rower);
+
+
+
 
             try
             {
@@ -364,12 +390,22 @@ namespace SklepRowerowyApp.ViewModel
 
         public void Zapisz()
         {
+           // WybranaJednostkaEdycja = WybranyRowerM.Waga.Substring(WybranyRowerM.Waga.Length - 2);
+          
+
+            var coTo = Dokument.ListaSklepowRowerowych.FirstOrDefault().ListaRodzaj.FirstOrDefault(x => x.IdRodzaj == WybranyRodzajEdycja.ElementAt(0).ToString()).ListaListaRowerow.FirstOrDefault().ListaRower.Count + 1;
+
+            var IDtemp = WybranyRodzajEdycja.ElementAt(0).ToString() + coTo.ToString();
+            if (IDtemp.Length == 2)
+            {
+                IDtemp = WybranyRodzajEdycja.ElementAt(0).ToString() + "0" + coTo.ToString();
+            }
 
             Dokument.ListaSklepowRowerowych.FirstOrDefault().ListaRodzaj.SingleOrDefault(x => x.IdRodzaj == WybranyRowerM.IdRodzaj).ListaListaRowerow.FirstOrDefault().ListaRower.RemoveAll(x => x.IdRower == WybranyRowerM.Id);
 
             Rower rower = new Rower()
             {
-                IdRower = IDEdycja
+                IdRower = IDtemp
             };
             rower.ListaProducent = new List<Producent>();
             rower.ListaProducent.Add(new Producent() { Idref = WybranyProducentEdycja });
@@ -377,8 +413,12 @@ namespace SklepRowerowyApp.ViewModel
             rower.ListaNazwa = new List<string>();
             rower.ListaNazwa.Add(NazwaEdycja);
 
+            var jednostka = WybranaJednostkaEdycja;
+            var waluta = WybranaWalutaEdycja;
             rower.ListaWaga = new List<Waga>();
             rower.ListaWaga.Add(new Waga() { Jednostka = WybranaJednostkaEdycja, WagaWartosc = WagaEdycja });
+
+           // WybranaWalutaEdycja = WybranyRowerM.Cena.Substring(WybranyRowerM.Cena.Length - 3);
 
             rower.ListaCena = new List<Cena>();
             rower.ListaCena.Add(new Cena() { Waluta = WybranaWalutaEdycja, CenaWartosc = CenaEdycja });
@@ -388,21 +428,95 @@ namespace SklepRowerowyApp.ViewModel
 
             Dokument.ListaSklepowRowerowych.FirstOrDefault().ListaRodzaj.FirstOrDefault(x => x.IdRodzaj == WybranyRodzajEdycja).ListaListaRowerow.FirstOrDefault().ListaRower.Add(rower);
 
-            try
-            {
+            
                 XmlReader.ZapiszDane(Dokument);
                 RoweryM = new RoweryM(Dokument);
                 ListaRowerowM = RoweryM.getListaRowerowM();
-            }
-            catch (Exception e)
+ 
+            
+
+        }
+
+        public void XSLtoPDF()
+        {
+            FileStream xml = new FileStream(@"D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\Dokumenty\testDokumentPomocniczy.xml", FileMode.Open);
+           
+            FileStream xsl = new FileStream(@"D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\Dokumenty\XSLtoPDF.xsl", FileMode.Open);
+            FileStream pdf = new FileStream(@"D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\Dokumenty\PDF.pdf", FileMode.Create);
+           
+            var doc = new FODocument();
+            doc.generate(xml, xsl, pdf);
+
+            MessageBox.Show("Sukces!");
+        }
+
+        public void TransformXMLToHTML()
+        {
+         
+            string inputXml = File.ReadAllText(@"D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\Dokumenty\testDokumentPomocniczy.xml");
+            string xsltString = File.ReadAllText(@"D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\Dokumenty\xhtml.xsl");
+            XslCompiledTransform transform = new XslCompiledTransform();
+            using (XmlReader reader = System.Xml.XmlReader.Create(new StringReader(xsltString)))
             {
-                MessageBox.Show("cos nie bangla");
+              
+                transform.Load(reader);
+            }
+            StringWriter results = new StringWriter();
+            using (XmlReader reader = System.Xml.XmlReader.Create(new StringReader(inputXml)))
+            {
+                transform.Transform(reader, null, results);
+            }
+            
+            File.WriteAllText(@"D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\Dokumenty\strona.xhtml", results.ToString());
+            MessageBox.Show("Sukces!");
+        }
+
+        public void TransformXMLToSVG()
+        {
+
+            string inputXml = File.ReadAllText(@"D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\Dokumenty\testDokumentPomocniczy.xml");
+            string xsltString = File.ReadAllText(@"D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\Dokumenty\XSLtoSVG.xsl");
+            XslCompiledTransform transform = new XslCompiledTransform();
+            using (XmlReader reader = System.Xml.XmlReader.Create(new StringReader(xsltString)))
+            {
+
+                transform.Load(reader);
+            }
+            StringWriter results = new StringWriter();
+            using (XmlReader reader = System.Xml.XmlReader.Create(new StringReader(inputXml)))
+            {
+                transform.Transform(reader, null, results);
             }
 
+            File.WriteAllText(@"D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\Dokumenty\animacje.svg", results.ToString());
+            MessageBox.Show("Sukces!");
+        }
+
+        public void TransformXMLToTXT()
+        {
+
+            string inputXml = File.ReadAllText(@"D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\Dokumenty\testDokumentPomocniczy.xml");
+            string xsltString = File.ReadAllText(@"D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\Dokumenty\XSLtoTXT.xsl");
+            XslCompiledTransform transform = new XslCompiledTransform();
+            using (XmlReader reader = System.Xml.XmlReader.Create(new StringReader(xsltString)))
+            {
+
+                transform.Load(reader);
+            }
+            StringWriter results = new StringWriter();
+            using (XmlReader reader = System.Xml.XmlReader.Create(new StringReader(inputXml)))
+            {
+                transform.Transform(reader, null, results);
+            }
+
+            File.WriteAllText(@"D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\Dokumenty\Tekstowy.txt", results.ToString());
+            MessageBox.Show("Sukces!");
         }
 
         public void StworzIdRowera(string typ)
         {
+            var coTo = Dokument.ListaSklepowRowerowych.FirstOrDefault().ListaRodzaj.FirstOrDefault(x => x.IdRodzaj == WybranyRodzaj.ElementAt(0).ToString()).ListaListaRowerow.FirstOrDefault().ListaRower.Count - 1;
+
             string id = typ.ElementAt(0).ToString();
         }
     }

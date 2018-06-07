@@ -13,3 +13,5 @@ D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\obj\Debug\Sklep
 D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\obj\Debug\SklepRowerowyApp.csproj.CoreCompileInputs.cache
 D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\obj\Debug\SklepRowerowyApp.exe
 D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\obj\Debug\SklepRowerowyApp.pdb
+D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\bin\Debug\ibex40.dll
+D:\Studia\PKCK\git\PKCK\Task 5\SklepRowerowyApp\SklepRowerowyApp\obj\Debug\SklepRowerowyApp.csproj.CopyComplete
